@@ -6,12 +6,12 @@ const HIGH_SCORES = 'highScores';
 const NAMES = ['H', 'X', 'Y', 'Z', 'S', 'T']
 const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
 const SHAPES = [
-  [[1]],
-  [[2]],
-  [[3]],
-  [[4]],
-  [[5]],
-  [[6]]
+  [['H']],
+  [['X']],
+  [['Y']],
+  [['Z']],
+  [['S']],
+  [['T']]
 ];
 const POINTS = {
   SINGLE: 100,
@@ -23,7 +23,7 @@ const POINTS = {
 }
 Object.freeze(POINTS);
 
-const LINES_PER_LEVEL = 10;
+const GATES_PER_LEVEL = 10;
 const LEVEL = {
   0: 800,
   1: 720,
@@ -79,7 +79,7 @@ Object.freeze(KEY);
 
 let accountValues = {
   score: 0,
-  lines: 0,
+  gates: 0,
   level: 0
 }
 

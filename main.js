@@ -42,7 +42,7 @@ function draw() {
 
 function resetGame() {
   account.score = 0;
-  account.lines = 0;
+  account.gates = 0;
   account.level = 0;
   board = new Board(ctx, ctxNext);
   time = { start: performance.now(), elapsed: 0, level: LEVEL[0] };

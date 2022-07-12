@@ -10,7 +10,7 @@ class Board {
   // Get matrix filled with zeros.
   getEmptyBoard() {
     return Array.from(
-      {length: ROWS}, () => Array(COLS).fill(0)
+      {length: ROWS}, () => Array(COLS).fill('I')
     );
   }
 
@@ -37,13 +37,13 @@ class Board {
       return row.every((value, dx) => {
         let x = gate.x + dx;
         let y = gate.y + dy;
-        return value === 0 || (this.isInsideWalls(x, y) && this.isNotOccupied(x, y));
+        return value === 'I' || (this.isInsideWalls(x, y) && this.isNotOccupied(x, y));
       });
     });
   }
 
   isNotOccupied(x, y) {
-    return this.grid[y] && this.grid[y][x] === 0;
+    return this.grid[y] && this.grid[y][x] === 'I';
   }
 
   isInsideWalls(x, y) {
@@ -61,7 +61,6 @@ class Board {
       this.gate.move(gate);
     } else {
       this.freeze();
-      // this.clearLines();
       this.reduceGates();
       if (this.gate.y === 0) { // Game over
         return false;
@@ -88,7 +87,7 @@ class Board {
   freeze() {
     this.gate.shape.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value > 0) {
+        if (value !== 'I') {
           this.grid[y + this.gate.y][x + this.gate.x] = value;
         }
       });
@@ -96,40 +95,46 @@ class Board {
   }
 
   draw() {
+    console.table(this.grid)
+
     this.grid.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value > 0) {
-          this.ctx.fillStyle = COLORS[value - 1];
+        if (value !== 'I') {
+          const index = NAMES.indexOf(value)
+
+          this.ctx.fillStyle = COLORS[index];
           this.ctx.fillRect(x, y, 1, 1);
 
           this.ctx.fillStyle = '#000';
           this.ctx.font = '1px sans-serif';
-          this.ctx.fillText(NAMES[value - 1], x, y + 1);
+          this.ctx.fillText(value, x, y + 1);
         }
       });
     });
   }
 
   reduceGates() {
+    let gates = 0;
+
     for (let y = ROWS - 1; y > 0; y--) {
       for (let x = 0; x < COLS; x++) {
-        const color = this.grid[y][x]
+        const gateName = this.grid[y][x]
 
-        if (color > 0) {
-          const gateName = NAMES[color - 1]
-
-          if (color === this.grid[y - 1][x]) {
+        if (gateName !== 'I') {
+          if (gateName === this.grid[y - 1][x]) {
             // HH, XX, YY, ZZ → I
             if (gateName === 'H' || gateName === 'X' || gateName === 'Y' || gateName === 'Z') {
-              this.grid[y][x] = 0
-              this.grid[y - 1][x] = 0
+              this.grid[y][x] = 'I'
+              this.grid[y - 1][x] = 'I'
 
+              gates += 2
               account.score += this.getGateReducePoints(2);
             } else if (gateName === 'T') { // TT = S
-              const sIndex = NAMES.indexOf('S')
-              this.grid[y][x] = sIndex + 1
-              this.grid[y - 1][x] = 0
+              // const sIndex = NAMES.indexOf('S')
+              this.grid[y][x] = 'S'
+              this.grid[y - 1][x] = 'I'
 
+              gates += 1
               account.score += this.getGateReducePoints(1);
             }
           }
@@ -137,52 +142,40 @@ class Board {
           // SSSS → I
           if (gateName === 'S' &&
               y > 2 &&
-              color === this.grid[y - 1][x] &&
-              color === this.grid[y - 2][x] &&
-              color === this.grid[y - 3][x]) {
-            this.grid[y][x] = 0
-            this.grid[y - 1][x] = 0
-            this.grid[y - 2][x] = 0
-            this.grid[y - 3][x] = 0
+              gateName === this.grid[y - 1][x] &&
+              gateName === this.grid[y - 2][x] &&
+              gateName === this.grid[y - 3][x]) {
+            this.grid[y][x] = 'I'
+            this.grid[y - 1][x] = 'I'
+            this.grid[y - 2][x] = 'I'
+            this.grid[y - 3][x] = 'I'
 
+            gates += 4
             account.score += this.getGateReducePoints(4);
           }
         }
       }
     }
-  }
 
-  clearLines() {
-    let lines = 0;
-    this.grid.forEach((row, y) => {
-      // If every value is greater than zero then we have a full row.
-      if (row.every(value => value > 0)) {
-        lines++; // Increase for cleared line
+    if (gates > 0) {
+      console.log(`gates = ${gates}`)
 
-        this.grid.splice(y, 1); // Remove the row.
+      // Add points if we cleared some gates
+      account.score += this.getGateReducePoints(gates);
+      account.gates += gates
 
-        // Add zero filled row at the top.
-        this.grid.unshift(Array(COLS).fill(0));
+      // If we have reached the gates for next level
+      if (account.gates >= GATES_PER_LEVEL) {
+        // Goto next level
+        account.level++;
 
-        if (lines > 0) {
-          // Add points if we cleared some lines
-          account.score += this.getLineClearPoints(lines);
-          account.lines += lines
+        // Remove gates so we start working for the next level
+        account.gates -= GATES_PER_LEVEL;
 
-          // If we have reached the lines for next level
-          if (account.lines >= LINES_PER_LEVEL) {
-            // Goto next level
-            account.level++;
-
-            // Remove lines so we start working for the next level
-            account.lines -= LINES_PER_LEVEL;
-
-            // Increase speed of game
-            time.level = LEVEL[account.level];
-          }
-        }
+        // Increase speed of game
+        time.level = LEVEL[account.level];
       }
-    });
+    }
   }
 
   getGateReducePoints(gates) {
@@ -194,16 +187,5 @@ class Board {
       0;
 
     return (account.level + 1) * gateReducePoints;
-  }
-
-  getLineClearPoints(lines) {
-    const lineClearPoints =
-      lines === 1 ? POINTS.SINGLE :
-      lines === 2 ? POINTS.DOUBLE :
-      lines === 3 ? POINTS.TRIPLE :
-      lines === 4 ? POINTS.TETRIS :
-      0;
-
-    return (account.level + 1) * lineClearPoints;
   }
 }
