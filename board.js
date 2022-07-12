@@ -61,7 +61,8 @@ class Board {
       this.gate.move(gate);
     } else {
       this.freeze();
-      this.clearLines();
+      // this.clearLines();
+      this.reduceGates();
       if (this.gate.y === 0) { // Game over
         return false;
       }
@@ -107,6 +108,43 @@ class Board {
         }
       });
     });
+  }
+
+  reduceGates() {
+    for (let y = ROWS - 1; y > 0; y--) {
+      for (let x = 0; x < COLS; x++) {
+        const color = this.grid[y][x]
+
+        if (color > 0) {
+          const gateName = NAMES[color - 1]
+
+          // XX, YY, ZZ → I
+          // TT → S
+          if (color === this.grid[y - 1][x]) {
+            if (gateName === 'H' || gateName === 'X' || gateName === 'Y' || gateName === 'Z') {
+              this.grid[y][x] = 0
+              this.grid[y - 1][x] = 0
+            } else if (gateName === 'T') { // TT = S
+              const sIndex = NAMES.indexOf('S')
+              this.grid[y][x] = sIndex + 1
+              this.grid[y - 1][x] = 0
+            }
+          }
+
+          // SSSS → I
+          if (gateName === 'S' &&
+              y > 2 &&
+              color === this.grid[y - 1][x] &&
+              color === this.grid[y - 2][x] &&
+              color === this.grid[y - 3][x]) {
+            this.grid[y][x] = 0
+            this.grid[y - 1][x] = 0
+            this.grid[y - 2][x] = 0
+            this.grid[y - 3][x] = 0
+          }
+        }
+      }
+    }
   }
 
   clearLines() {
