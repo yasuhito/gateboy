@@ -6,20 +6,20 @@ function handleKeyPress(event) {
   event.preventDefault();
 
   if (moves[event.keyCode]) {
-    // Get new state of piece
-    let p = moves[event.keyCode](board.piece);
+    // Get new state of gate
+    let p = moves[event.keyCode](board.gate);
 
     if (event.keyCode === KEY.SPACE) {
       // Hard drop
       while (board.valid(p)) {
-        board.piece.move(p);
+        board.gate.move(p);
         account.score += POINTS.HARD_DROP;
-        p = moves[KEY.SPACE](board.piece);
+        p = moves[KEY.SPACE](board.gate);
       }
     }
 
     if (board.valid(p)) {
-      board.piece.move(p);
+      board.gate.move(p);
       if (event.keyCode === KEY.DOWN) {
         account.score += POINTS.SOFT_DROP;
       }
@@ -37,7 +37,7 @@ function draw() {
   ctx.clearRect(0, 0, width, height);
 
   board.draw();
-  board.piece.draw();
+  board.gate.draw();
 }
 
 function resetGame() {

@@ -3,8 +3,8 @@ class Board {
     this.ctx = ctx;
     this.ctxNext = ctxNext;
     this.grid = this.getEmptyBoard();
-    this.setNextPiece();
-    this.setCurrentPiece();
+    this.setNextGate();
+    this.setCurrentGate();
   }
 
   // Get matrix filled with zeros.
@@ -14,11 +14,11 @@ class Board {
     );
   }
 
-  rotate(piece){
+  rotate(gate){
     // Clone with JSON
-    let p = JSON.parse(JSON.stringify(piece));
+    let p = JSON.parse(JSON.stringify(gate));
 
-    // Transpose matrix, p is the Piece
+    // Transpose matrix, p is the Gate
     for (let y = 0; y < p.shape.length; ++y) {
       for (let x = 0; x < y; ++x) {
         [p.shape[x][y], p.shape[y][x]] =
@@ -55,40 +55,40 @@ class Board {
   }
 
   drop() {
-    let p = moves[KEY.DOWN](this.piece);
+    let p = moves[KEY.DOWN](this.gate);
 
     if (this.valid(p)) {
-      this.piece.move(p);
+      this.gate.move(p);
     } else {
       this.freeze();
       this.clearLines();
-      if (this.piece.y === 0) { // Game over
+      if (this.gate.y === 0) { // Game over
         return false;
       }
-      this.setCurrentPiece();
+      this.setCurrentGate();
     }
     return true;
   }
 
-  setNextPiece() {
+  setNextGate() {
     const { width, height } = this.ctxNext.canvas;
-    this.nextPiece = new Piece(this.ctxNext);
+    this.nextGate = new Gate(this.ctxNext);
     this.ctxNext.clearRect(0, 0, width, height);
-    this.nextPiece.draw();
+    this.nextGate.draw();
   }
 
-  setCurrentPiece() {
-    this.piece = this.nextPiece;
-    this.piece.ctx = this.ctx;
-    this.piece.x = 3;
-    this.setNextPiece();
+  setCurrentGate() {
+    this.gate = this.nextGate;
+    this.gate.ctx = this.ctx;
+    this.gate.x = 3;
+    this.setNextGate();
   }
 
   freeze() {
-    this.piece.shape.forEach((row, y) => {
+    this.gate.shape.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value > 0) {
-          this.grid[y + this.piece.y][x + this.piece.x] = value;
+          this.grid[y + this.gate.y][x + this.gate.x] = value;
         }
       });
    });

@@ -1,4 +1,4 @@
-class Piece {
+class Gate {
   constructor(ctx) {
     this.ctx = ctx;
 
