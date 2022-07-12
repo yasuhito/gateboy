@@ -98,8 +98,12 @@ class Board {
     this.grid.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value > 0) {
-          this.ctx.fillStyle = COLORS[value-1];
+          this.ctx.fillStyle = COLORS[value - 1];
           this.ctx.fillRect(x, y, 1, 1);
+
+          this.ctx.fillStyle = '#000';
+          this.ctx.font = '1px sans-serif';
+          this.ctx.fillText(NAMES[value - 1], x, y + 1);
         }
       });
     });

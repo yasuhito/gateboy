@@ -3,6 +3,7 @@ class Gate {
     this.ctx = ctx;
 
     const typeId = this.randomizeTetrominoType(COLORS.length);
+    this.name = NAMES[typeId];
     this.shape = SHAPES[typeId];
     this.color = COLORS[typeId];
 
@@ -19,12 +20,17 @@ class Gate {
         }
       });
     });
+
+    // draw gate nae
+    this.ctx.fillStyle = '#000';
+    this.ctx.font = '1px sans-serif';
+    this.ctx.fillText(this.name, this.x, this.y + 1);
   }
 
-  move(p) {
-    this.x = p.x;
-    this.y = p.y;
-    this.shape = p.shape;
+  move(gate) {
+    this.x = gate.x;
+    this.y = gate.y;
+    this.shape = gate.shape;
   }
 
   // TODO: implement TGM (The Grand Master series) randomizer

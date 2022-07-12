@@ -3,15 +3,15 @@ const ROWS = 20;
 const BLOCK_SIZE = 30;
 const NO_OF_HIGH_SCORES = 10;
 const HIGH_SCORES = 'highScores';
-const COLORS = ['cyan', 'blue', 'orange', 'yellow', 'green', 'purple', 'red'];
+const NAMES = ['H', 'X', 'Y', 'Z', 'S', 'T']
+const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
 const SHAPES = [
-  [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]],
-  [[2, 0, 0], [2, 2, 2], [0, 0, 0]],
-  [[0, 0, 3], [3, 3, 3], [0, 0, 0]],
-  [[4, 4], [4, 4]],
-  [[0, 5, 5], [5, 5, 0], [0, 0, 0]],
-  [[0, 6, 0], [6, 6, 6], [0, 0, 0]],
-  [[7, 7, 0], [0, 7, 7], [0, 0, 0]]
+  [[1]],
+  [[2]],
+  [[3]],
+  [[4]],
+  [[5]],
+  [[6]]
 ];
 const POINTS = {
   SINGLE: 100,
