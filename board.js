@@ -118,16 +118,19 @@ class Board {
         if (color > 0) {
           const gateName = NAMES[color - 1]
 
-          // XX, YY, ZZ → I
-          // TT → S
           if (color === this.grid[y - 1][x]) {
+            // HH, XX, YY, ZZ → I
             if (gateName === 'H' || gateName === 'X' || gateName === 'Y' || gateName === 'Z') {
               this.grid[y][x] = 0
               this.grid[y - 1][x] = 0
+
+              account.score += this.getGateReducePoints(2);
             } else if (gateName === 'T') { // TT = S
               const sIndex = NAMES.indexOf('S')
               this.grid[y][x] = sIndex + 1
               this.grid[y - 1][x] = 0
+
+              account.score += this.getGateReducePoints(1);
             }
           }
 
@@ -141,6 +144,8 @@ class Board {
             this.grid[y - 1][x] = 0
             this.grid[y - 2][x] = 0
             this.grid[y - 3][x] = 0
+
+            account.score += this.getGateReducePoints(4);
           }
         }
       }
@@ -178,6 +183,17 @@ class Board {
         }
       }
     });
+  }
+
+  getGateReducePoints(gates) {
+    const gateReducePoints =
+      gates === 1 ? POINTS.SINGLE :
+      gates === 2 ? POINTS.DOUBLE :
+      gates === 3 ? POINTS.TRIPLE :
+      gates === 4 ? POINTS.TETRIS :
+      0;
+
+    return (account.level + 1) * gateReducePoints;
   }
 
   getLineClearPoints(lines) {
