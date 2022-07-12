@@ -16,27 +16,27 @@ class Board {
 
   rotate(gate){
     // Clone with JSON
-    let p = JSON.parse(JSON.stringify(gate));
+    let g = JSON.parse(JSON.stringify(gate));
 
-    // Transpose matrix, p is the Gate
-    for (let y = 0; y < p.shape.length; ++y) {
+    // Transpose matrix, g is the Gate
+    for (let y = 0; y < gate.shape.length; ++y) {
       for (let x = 0; x < y; ++x) {
-        [p.shape[x][y], p.shape[y][x]] =
-        [p.shape[y][x], p.shape[x][y]];
+        [g.shape[x][y], g.shape[y][x]] =
+        [g.shape[y][x], g.shape[x][y]];
       }
     }
 
     // Reverse the order of the columns.
-    p.shape.forEach(row => row.reverse());
+    g.shape.forEach(row => row.reverse());
 
-    return p;
+    return g;
   }
 
-  valid(p) {
-    return p.shape.every((row, dy) => {
+  valid(gate) {
+    return gate.shape.every((row, dy) => {
       return row.every((value, dx) => {
-        let x = p.x + dx;
-        let y = p.y + dy;
+        let x = gate.x + dx;
+        let y = gate.y + dy;
         return value === 0 || (this.isInsideWalls(x, y) && this.isNotOccupied(x, y));
       });
     });
@@ -55,10 +55,10 @@ class Board {
   }
 
   drop() {
-    let p = moves[KEY.DOWN](this.gate);
+    let gate = moves[KEY.DOWN](this.gate);
 
-    if (this.valid(p)) {
-      this.gate.move(p);
+    if (this.valid(gate)) {
+      this.gate.move(gate);
     } else {
       this.freeze();
       this.clearLines();
