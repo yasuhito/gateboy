@@ -12,19 +12,24 @@ class Gate {
   }
 
   draw() {
-    this.ctx.fillStyle = this.color;
     this.shape.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value !== 'I') {
+          this.ctx.fillStyle = this.color;
           this.ctx.fillRect(this.x + x, this.y + y, 1, 1);
+
+          // draw gate name
+          this.ctx.fillStyle = '#000';
+          this.ctx.font = '1px sans-serif';
+          this.ctx.fillText(this.name, this.x + x, this.y + y + 1);
         }
       });
     });
 
-    // draw gate nae
-    this.ctx.fillStyle = '#000';
-    this.ctx.font = '1px sans-serif';
-    this.ctx.fillText(this.name, this.x, this.y + 1);
+    // draw gate name
+    // this.ctx.fillStyle = '#000';
+    // this.ctx.font = '1px sans-serif';
+    // this.ctx.fillText(this.name, this.x, this.y + 1);
   }
 
   move(gate) {
