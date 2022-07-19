@@ -63,9 +63,9 @@ class Board {
       this.freeze();
 
       while (true) {
-        this.reduceGates();
+        const reducedGates = this.reduceGates();
         const numDroppedGates = this.dropUnconnectedGates();
-        if (numDroppedGates === 0) break;
+        if (reducedGates === 0 && numDroppedGates === 0) break;
       }
 
       if (this.gate.y === 0) { // Game over
@@ -170,6 +170,8 @@ class Board {
         time.level = LEVEL[account.level];
       }
     }
+
+    return gates;
   }
 
   dropUnconnectedGates() {
