@@ -1,4 +1,7 @@
-class Board {
+import {COLS, COLORS, GATES_PER_LEVEL, KEY, LEVEL, NAMES, POINTS, ROWS, moves} from './constants.js'
+import { Gate } from './gate.js';
+
+export class Board {
   constructor(ctx, ctxNext) {
     this.ctx = ctx;
     this.ctxNext = ctxNext;
@@ -54,16 +57,16 @@ class Board {
     );
   }
 
-  drop() {
-    let gate = moves[KEY.DOWN](this.gate);
+  drop(account, time) {
+    let gate = moves[KEY.DOWN](this);
 
     if (this.valid(gate)) {
       this.gate.move(gate);
     } else {
       this.freeze();
 
-      while (true) {
-        const reducedGates = this.reduceGates();
+      for (;;) {
+        const reducedGates = this.reduceGates(account, time);
         const numDroppedGates = this.dropUnconnectedGates();
         if (reducedGates === 0 && numDroppedGates === 0) break;
       }
@@ -119,7 +122,7 @@ class Board {
     });
   }
 
-  reduceGates() {
+  reduceGates(account, time) {
     let gates = 0;
 
     for (let y = ROWS - 1; y > 0; y--) {
@@ -134,19 +137,19 @@ class Board {
               this.grid[y - 1][x] = 'I'
 
               gates += 2
-              account.score += this.getGateReducePoints(2);
+              account.score += this.getGateReducePoints(2, account.level);
             } else if (gateName === 'S') { // SS = Z
               this.grid[y][x] = 'Z'
               this.grid[y - 1][x] = 'I'
 
               gates += 1
-              account.score += this.getGateReducePoints(1);
+              account.score += this.getGateReducePoints(1, account.level);
             } else if (gateName === 'T') { // TT = S
               this.grid[y][x] = 'S'
               this.grid[y - 1][x] = 'I'
 
               gates += 1
-              account.score += this.getGateReducePoints(1);
+              account.score += this.getGateReducePoints(1, account.level);
             }
           }
         }
@@ -155,7 +158,7 @@ class Board {
 
     if (gates > 0) {
       // Add points if we cleared some gates
-      account.score += this.getGateReducePoints(gates);
+      account.score += this.getGateReducePoints(gates, account.level);
       account.gates += gates
 
       // If we have reached the gates for next level
@@ -191,10 +194,10 @@ class Board {
 
           if (droppable) {
             for (const gate of sameColorGates) {
-              for (let targetRow = y + 1; targetRow < ROWS; targetRow++) {
-                if (this.grid[targetRow][x] === 'I') {
-                  this.grid[targetRow - 1][x] = 'I'
-                  this.grid[targetRow][x] = gateName
+              for (let targetRow = gate.y + 1; targetRow < ROWS; targetRow++) {
+                if (this.grid[targetRow][gate.x] === 'I') {
+                  this.grid[targetRow - 1][gate.x] = 'I'
+                  this.grid[targetRow][gate.x] = gateName
                 }
               }
             }
@@ -220,7 +223,7 @@ class Board {
     if (col - 1 >= 0 && this.grid[row][col - 1] === gateName) this.findSameColorGates(row, col - 1, gates)
   }
 
-  getGateReducePoints(gates) {
+  getGateReducePoints(gates, level) {
     const gateReducePoints =
       gates === 1 ? POINTS.SINGLE :
       gates === 2 ? POINTS.DOUBLE :
@@ -228,6 +231,6 @@ class Board {
       gates === 4 ? POINTS.TETRIS :
       0;
 
-    return (account.level + 1) * gateReducePoints;
+    return (level + 1) * gateReducePoints;
   }
 }

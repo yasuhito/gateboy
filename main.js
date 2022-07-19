@@ -1,5 +1,29 @@
+import {HIGH_SCORES, NO_OF_HIGH_SCORES, KEY, LEVEL, POINTS, ctx, ctxNext, moves} from './constants.js'
+import {Board} from './board.js';
+
+let board = null;
+let requestId = null;
+let accountValues = {
+  score: 0,
+  gates: 0,
+  level: 0
+}
+let account = new Proxy(accountValues, {
+  set: (target, key, value) => {
+    target[key] = value;
+    updateAccount(key, value);
+    return true;
+  }
+});
 
 showHighScores();
+
+function updateAccount(key, value) {
+  let element = document.getElementById(key);
+  if (element) {
+    element.textContent = value;
+  }
+}
 
 function handleKeyPress(event) {
   // Stop the event from bubbling.
@@ -7,19 +31,19 @@ function handleKeyPress(event) {
 
   if (moves[event.keyCode]) {
     // Get new state of gate
-    let p = moves[event.keyCode](board.gate);
+    let gate = moves[event.keyCode](board);
 
     if (event.keyCode === KEY.SPACE) {
       // Hard drop
-      while (board.valid(p)) {
-        board.gate.move(p);
+      while (board.valid(gate)) {
+        board.gate.move(gate);
         account.score += POINTS.HARD_DROP;
-        p = moves[KEY.SPACE](board.gate);
+        gate = moves[KEY.SPACE](board);
       }
     }
 
-    if (board.valid(p)) {
-      board.gate.move(p);
+    if (board.valid(gate)) {
+      board.gate.move(gate);
       if (event.keyCode === KEY.DOWN) {
         account.score += POINTS.SOFT_DROP;
       }
@@ -48,6 +72,9 @@ function resetGame() {
   time = { start: performance.now(), elapsed: 0, level: LEVEL[0] };
 }
 
+const playButton = document.getElementById('play-button')
+playButton.addEventListener('click', play);
+
 function play() {
   resetGame();
   addEventListener();
@@ -60,7 +87,7 @@ function play() {
   animate();
 }
 
-time = { start: 0, elapsed: 0, level: 1000 };
+let time = { start: 0, elapsed: 0, level: 1000 };
 
 function animate(now = 0) {
   // Update elapsed time.
@@ -71,7 +98,7 @@ function animate(now = 0) {
     // Restart counting from now
     time.start = now;
 
-    if (!board.drop()) {
+    if (!board.drop(account, time)) {
       gameOver();
       return;
     }
@@ -113,7 +140,7 @@ function saveHighScore(score, highScores) {
   highScores.splice(NO_OF_HIGH_SCORES);
 
   localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores));
-};
+}
 
 function showHighScores() {
   const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) || [];

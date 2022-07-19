@@ -6,6 +6,7 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <div class="grid">
       <div class="left-column">
@@ -20,12 +21,10 @@
           <p>Level: <span id="level">0</span></p>
           <canvas id="next"></canvas>
         </div>
-        <button onclick="play()" class="play-button">Play</button>
+        <button id="play-button" class="play-button">Play</button>
       </div>
     </div>
-    <script type="text/javascript" src="constants.js"></script>
-    <script type="text/javascript" src="board.js"></script>
-    <script type="text/javascript" src="gate.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+
+    <script type="module" src="main.js"></script>
   </body>
 </html>

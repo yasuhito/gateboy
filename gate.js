@@ -1,4 +1,6 @@
-class Gate {
+import {COLORS, NAMES, SHAPES} from './constants.js';
+
+export class Gate {
   constructor(ctx) {
     this.ctx = ctx;
 

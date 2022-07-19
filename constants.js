@@ -1,10 +1,10 @@
-const COLS = 10;
-const ROWS = 20;
+export const COLS = 10;
+export const ROWS = 20;
 const BLOCK_SIZE = 30;
-const NO_OF_HIGH_SCORES = 10;
-const HIGH_SCORES = 'highScores';
-const NAMES = ['H', 'X', 'Y', 'Z', 'S', 'T']
-const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
+export const NO_OF_HIGH_SCORES = 10;
+export const HIGH_SCORES = 'highScores';
+export const NAMES = ['H', 'X', 'Y', 'Z', 'S', 'T']
+export const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
 
 // const SHAPES = [
 //   [['H']],
@@ -15,7 +15,7 @@ const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
 //   [['T']]
 // ];
 
-const SHAPES = [
+export const SHAPES = [
   [['I', 'I', 'I', 'I'], ['H', 'H', 'H', 'H'], ['I', 'I', 'I', 'I'], ['I', 'I', 'I', 'I']],
   [['X', 'I', 'I'], ['X', 'X', 'X'], ['I', 'I', 'I']],
   [['I', 'I', 'Y'], ['Y', 'Y', 'Y'], ['I', 'I', 'I']],
@@ -25,7 +25,7 @@ const SHAPES = [
   // [[7, 7, 'I'], ['I', 7, 7], ['I', 'I', 'I']]
 ];
 
-const POINTS = {
+export const POINTS = {
   SINGLE: 100,
   DOUBLE: 300,
   TRIPLE: 500,
@@ -35,8 +35,8 @@ const POINTS = {
 }
 Object.freeze(POINTS);
 
-const GATES_PER_LEVEL = 10;
-const LEVEL = {
+export const GATES_PER_LEVEL = 10;
+export const LEVEL = {
   0: 800,
   1: 720,
   2: 630,
@@ -63,9 +63,9 @@ const LEVEL = {
 Object.freeze(LEVEL);
 
 const canvas = document.getElementById('board');
-const ctx = canvas.getContext('2d');
+export const ctx = canvas.getContext('2d');
 const canvasNext = document.getElementById('next');
-const ctxNext = canvasNext.getContext('2d');
+export const ctxNext = canvasNext.getContext('2d');
 
 // Calculate size of canvas from constants.
 ctx.canvas.width = COLS * BLOCK_SIZE;
@@ -80,7 +80,7 @@ ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
 ctxNext.scale(BLOCK_SIZE, BLOCK_SIZE);
 
 
-const KEY = {
+export const KEY = {
   SPACE: 32,
   LEFT: 37,
   UP: 38,
@@ -89,34 +89,10 @@ const KEY = {
 }
 Object.freeze(KEY);
 
-let accountValues = {
-  score: 0,
-  gates: 0,
-  level: 0
-}
-
-function updateAccount(key, value) {
-  let element = document.getElementById(key);
-  if (element) {
-    element.textContent = value;
-  }
-}
-
-let account = new Proxy(accountValues, {
-  set: (target, key, value) => {
-    target[key] = value;
-    updateAccount(key, value);
-    return true;
-  }
-});
-
-const moves = {
-  [KEY.LEFT]:  (p) => ({ ...p, x: p.x - 1 }),
-  [KEY.RIGHT]: (p) => ({ ...p, x: p.x + 1 }),
-  [KEY.DOWN]:  (p) => ({ ...p, y: p.y + 1 }),
-  [KEY.UP]:    (p) => board.rotate(p),
-  [KEY.SPACE]:  (p) => ({ ...p, y: p.y + 1 }),
+export const moves = {
+  [KEY.LEFT]:  (board) => ({ ...board.gate, x: board.gate.x - 1 }),
+  [KEY.RIGHT]: (board) => ({ ...board.gate, x: board.gate.x + 1 }),
+  [KEY.DOWN]:  (board) => ({ ...board.gate, y: board.gate.y + 1 }),
+  [KEY.UP]:    (board) => board.rotate(board.gate),
+  [KEY.SPACE]:  (board) => ({ ...board.gate, y: board.gate.y + 1 }),
 };
-
-let requestId = null;
-let board = null;
