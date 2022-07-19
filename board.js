@@ -151,6 +151,12 @@ export class Board {
               gates += 1
               account.score += this.getGateReducePoints(1, account.level);
             }
+          } else if (gateName === 'X' && this.grid[y - 1][x] === 'Z') { // XZ = Y
+            this.grid[y][x] = 'Y'
+            this.grid[y - 1][x] = 'I'
+          } else if (gateName === 'Z' && this.grid[y - 1][x] === 'X') { // ZX = Y
+            this.grid[y][x] = 'Y'
+            this.grid[y - 1][x] = 'I'
           }
         }
       }
