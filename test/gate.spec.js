@@ -2,12 +2,6 @@ import {Gate} from '../src/gate.js';
 import {getBoardCanvasContext} from '../src/constants.js';
 
 describe('Gate', () => {
-  beforeEach(function() {
-    const board = document.createElement('canvas');
-    board.id = 'board'
-    document.body.appendChild(board);
-  });
-
   describe('new', () => {
     it('should have name', function () {
       const gate = new Gate('H');
@@ -15,7 +9,7 @@ describe('Gate', () => {
       expect(gate.name).toEqual('H');
     })
 
-    it('should have shape', function () {
+    it('should have its own unique shape', function () {
       const gate = new Gate('H');
 
       expect(gate.shape).toEqual([
@@ -26,7 +20,7 @@ describe('Gate', () => {
       ]);
     })
 
-    it('should have color', function () {
+    it('should have its own unique color', function () {
       const gate = new Gate('H');
 
       expect(gate.color).toEqual('cyan');
@@ -41,7 +35,13 @@ describe('Gate', () => {
   })
 
   describe('draw', () => {
-    it('should draw its shape without errors', function () {
+    beforeEach(function() {
+      const board = document.createElement('canvas');
+      board.id = 'board'
+      document.body.appendChild(board);
+    });
+
+    it('should draw its own shape', function () {
       const gate = new Gate('H');
       const ctx = getBoardCanvasContext();
 

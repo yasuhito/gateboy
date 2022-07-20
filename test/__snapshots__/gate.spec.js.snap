@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Gate draw should draw its shape without errors 1`] = `
+exports[`Gate draw should draw its own shape 1`] = `
 Array [
   Object {
     "props": Object {
