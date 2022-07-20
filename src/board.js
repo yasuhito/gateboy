@@ -62,20 +62,22 @@ export class Board {
   }
 
   rotate(gate) {
-    // Clone with JSON
-    let g = JSON.parse(JSON.stringify(gate));
+    const newGate = JSON.parse(JSON.stringify(gate));
 
-    // Transpose matrix, g is the Gate
+    // Transpose matrix
     for (let y = 0; y < gate.shape.length; ++y) {
       for (let x = 0; x < y; ++x) {
-        [g.shape[x][y], g.shape[y][x]] = [g.shape[y][x], g.shape[x][y]];
+        [newGate.shape[x][y], newGate.shape[y][x]] = [
+          newGate.shape[y][x],
+          newGate.shape[x][y],
+        ];
       }
     }
 
     // Reverse the order of the columns.
-    g.shape.forEach((row) => row.reverse());
+    newGate.shape.forEach((row) => row.reverse());
 
-    return g;
+    return newGate;
   }
 
   valid(gate) {
