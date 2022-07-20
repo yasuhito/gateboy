@@ -1,7 +1,7 @@
-import { Gate } from "../src/gate.js";
+import { Block } from "../src/block.js";
 import { Board } from "../src/board.js";
 
-describe("Gate", () => {
+describe("Board", () => {
   beforeEach(function () {
     const board = document.createElement("canvas");
     const next = document.createElement("canvas");
@@ -35,13 +35,13 @@ describe("Gate", () => {
     it("should set the next gate", function () {
       const board = new Board(ctx, ctxNext);
 
-      expect(board.nextGate).toBeInstanceOf(Gate);
+      expect(board.nextBlock).toBeInstanceOf(Block);
     });
 
     it("should set the current gate", function () {
       const board = new Board(ctx, ctxNext);
 
-      expect(board.gate).toBeInstanceOf(Gate);
+      expect(board.block).toBeInstanceOf(Block);
     });
   });
 
@@ -55,7 +55,7 @@ describe("Gate", () => {
     });
 
     it("should rotate H gate block", function () {
-      const gate = new Gate("H");
+      const gate = new Block("H");
       const rotatedGate = board.rotate(gate);
 
       expect(rotatedGate.shape).toEqual([
@@ -67,7 +67,7 @@ describe("Gate", () => {
     });
 
     it("should rotate X gate block", function () {
-      const gate = new Gate("X");
+      const gate = new Block("X");
       const rotatedGate = board.rotate(gate);
 
       expect(rotatedGate.shape).toEqual([
@@ -78,7 +78,7 @@ describe("Gate", () => {
     });
 
     it("should rotate Y gate block", function () {
-      const gate = new Gate("Y");
+      const gate = new Block("Y");
       const rotatedGate = board.rotate(gate);
 
       expect(rotatedGate.shape).toEqual([
@@ -89,7 +89,7 @@ describe("Gate", () => {
     });
 
     it("should rotate Z gate block", function () {
-      const gate = new Gate("Z");
+      const gate = new Block("Z");
       const rotatedGate = board.rotate(gate);
 
       expect(rotatedGate.shape).toEqual([
@@ -99,7 +99,7 @@ describe("Gate", () => {
     });
 
     it("should rotate S gate block", function () {
-      const gate = new Gate("S");
+      const gate = new Block("S");
       const rotatedGate = board.rotate(gate);
 
       expect(rotatedGate.shape).toEqual([
@@ -110,7 +110,7 @@ describe("Gate", () => {
     });
 
     it("should rotate T gate block", function () {
-      const gate = new Gate("T");
+      const gate = new Block("T");
       const rotatedGate = board.rotate(gate);
 
       expect(rotatedGate.shape).toEqual([
@@ -131,7 +131,7 @@ describe("Gate", () => {
     });
 
     it("should return true if H gate block is located inside the walls", function () {
-      const gate = new Gate("H");
+      const gate = new Block("H");
 
       for (const x of [1, 2, 3, 4, 5, 6]) {
         gate.x = x
@@ -140,21 +140,21 @@ describe("Gate", () => {
     });
 
     it("should return false if H gate block is located outside the left wall", function () {
-      const gate = new Gate("H");
+      const gate = new Block("H");
       gate.x = -1
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return false if H gate block is located outside the right wall", function () {
-      const gate = new Gate("H");
+      const gate = new Block("H");
       gate.x = 7
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return true if X gate block is located inside the walls", function () {
-      const gate = new Gate("X");
+      const gate = new Block("X");
 
       for (const x of [1, 2, 3, 4, 5, 6, 7]) {
         gate.x = x
@@ -163,21 +163,21 @@ describe("Gate", () => {
     });
 
     it("should return false if X gate block is located outside the left wall", function () {
-      const gate = new Gate("X");
+      const gate = new Block("X");
       gate.x = -1
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return false if X gate block is located outside the right wall", function () {
-      const gate = new Gate("X");
+      const gate = new Block("X");
       gate.x = 8
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return true if Y gate block is located inside the walls", function () {
-      const gate = new Gate("Y");
+      const gate = new Block("Y");
 
       for (const x of [1, 2, 3, 4, 5, 6, 7]) {
         gate.x = x
@@ -186,21 +186,21 @@ describe("Gate", () => {
     });
 
     it("should return false if Y gate block is located outside the left wall", function () {
-      const gate = new Gate("Y");
+      const gate = new Block("Y");
       gate.x = -1
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return false if Y gate block is located outside the right wall", function () {
-      const gate = new Gate("Y");
+      const gate = new Block("Y");
       gate.x = 8
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return true if Z gate block is located inside the walls", function () {
-      const gate = new Gate("Z");
+      const gate = new Block("Z");
 
       for (const x of [1, 2, 3, 4, 5, 6, 7, 8]) {
         gate.x = x
@@ -209,21 +209,21 @@ describe("Gate", () => {
     });
 
     it("should return false if Z gate block is located outside the left wall", function () {
-      const gate = new Gate("Z");
+      const gate = new Block("Z");
       gate.x = -1
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return false if Z gate block is located outside the right wall", function () {
-      const gate = new Gate("Z");
+      const gate = new Block("Z");
       gate.x = 9
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return true if S gate block is located inside the walls", function () {
-      const gate = new Gate("S");
+      const gate = new Block("S");
 
       for (const x of [1, 2, 3, 4, 5, 6, 7]) {
         gate.x = x
@@ -232,21 +232,21 @@ describe("Gate", () => {
     });
 
     it("should return false if S gate block is located outside the left wall", function () {
-      const gate = new Gate("S");
+      const gate = new Block("S");
       gate.x = -1
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return false if S gate block is located outside the right wall", function () {
-      const gate = new Gate("S");
+      const gate = new Block("S");
       gate.x = 8
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return true if T gate block is located inside the walls", function () {
-      const gate = new Gate("T");
+      const gate = new Block("T");
 
       for (const x of [1, 2, 3, 4, 5, 6, 7]) {
         gate.x = x
@@ -255,14 +255,14 @@ describe("Gate", () => {
     });
 
     it("should return false if T gate block is located outside the left wall", function () {
-      const gate = new Gate("T");
+      const gate = new Block("T");
       gate.x = -1
 
       expect(board.isValidPosition(gate)).toBeFalsy()
     });
 
     it("should return false if T gate block is located outside the right wall", function () {
-      const gate = new Gate("T");
+      const gate = new Block("T");
       gate.x = 8
 
       expect(board.isValidPosition(gate)).toBeFalsy()

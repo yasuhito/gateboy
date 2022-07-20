@@ -11,7 +11,7 @@ export const POINTS = {
 };
 Object.freeze(POINTS);
 
-export const GATES_PER_LEVEL = 10;
+export const GATES_PER_LEVEL = 40;
 export const LEVEL = {
   0: 800,
   1: 720,
@@ -48,9 +48,9 @@ export const KEY = {
 Object.freeze(KEY);
 
 export const moves = {
-  [KEY.LEFT]: (board) => ({ ...board.gate, x: board.gate.x - 1 }),
-  [KEY.RIGHT]: (board) => ({ ...board.gate, x: board.gate.x + 1 }),
-  [KEY.DOWN]: (board) => ({ ...board.gate, y: board.gate.y + 1 }),
-  [KEY.UP]: (board) => board.rotate(board.gate),
-  [KEY.SPACE]: (board) => ({ ...board.gate, y: board.gate.y + 1 }),
+  [KEY.LEFT]: (board) => ({ ...board.block, x: board.block.x - 1 }),
+  [KEY.RIGHT]: (board) => ({ ...board.block, x: board.block.x + 1 }),
+  [KEY.DOWN]: (board) => ({ ...board.block, y: board.block.y + 1 }),
+  [KEY.UP]: (board) => board.rotate(board.block),
+  [KEY.SPACE]: (board) => ({ ...board.block, y: board.block.y + 1 }),
 };

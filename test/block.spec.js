@@ -1,62 +1,62 @@
-import { Gate } from "../src/gate.js";
+import { Block } from "../src/block.js";
 import { Board } from "../src/board.js";
 
-describe("Gate", () => {
+describe("Block", () => {
   describe("random", () => {
-    it("should return a random gate", function () {
-      const gate = Gate.random();
+    it("should return a random block", function () {
+      const block = Block.random();
 
-      expect(gate).toBeInstanceOf(Gate);
+      expect(block).toBeInstanceOf(Block);
     });
   });
 
   describe("new", () => {
     it("should have name", function () {
-      const gate = new Gate("H");
+      const block = new Block("H");
 
-      expect(gate.name).toEqual("H");
+      expect(block.name).toEqual("H");
     });
 
     it("should throw an exception when an invalid name is passed", function () {
       expect(() => {
-        new Gate("?");
-      }).toThrow("Invalid gate name: ?");
+        new Block("?");
+      }).toThrow("Invalid block name: ?");
     });
 
     it("should have its own unique shape", function () {
-      const hGate = new Gate("H");
-      const xGate = new Gate("X");
-      const yGate = new Gate("Y");
-      const zGate = new Gate("Z");
-      const sGate = new Gate("S");
-      const tGate = new Gate("T");
+      const hBlock = new Block("H");
+      const xBlock = new Block("X");
+      const yBlock = new Block("Y");
+      const zBlock = new Block("Z");
+      const sBlock = new Block("S");
+      const tBlock = new Block("T");
 
-      expect(hGate.shape).toEqual([
+      expect(hBlock.shape).toEqual([
         ["I", "I", "I", "I"],
         ["H", "H", "H", "H"],
         ["I", "I", "I", "I"],
         ["I", "I", "I", "I"],
       ]);
-      expect(xGate.shape).toEqual([
+      expect(xBlock.shape).toEqual([
         ["X", "I", "I"],
         ["X", "X", "X"],
         ["I", "I", "I"],
       ]);
-      expect(yGate.shape).toEqual([
+      expect(yBlock.shape).toEqual([
         ["I", "I", "Y"],
         ["Y", "Y", "Y"],
         ["I", "I", "I"],
       ]);
-      expect(zGate.shape).toEqual([
+      expect(zBlock.shape).toEqual([
         ["Z", "Z"],
         ["Z", "Z"],
       ]);
-      expect(sGate.shape).toEqual([
+      expect(sBlock.shape).toEqual([
         ["I", "S", "S"],
         ["S", "S", "I"],
         ["I", "I", "I"],
       ]);
-      expect(tGate.shape).toEqual([
+      expect(tBlock.shape).toEqual([
         ["I", "T", "I"],
         ["T", "T", "T"],
         ["I", "I", "I"],
@@ -64,26 +64,26 @@ describe("Gate", () => {
     });
 
     it("should have its own unique color", function () {
-      const hGate = new Gate("H");
-      const xGate = new Gate("X");
-      const yGate = new Gate("Y");
-      const zGate = new Gate("Z");
-      const sGate = new Gate("S");
-      const tGate = new Gate("T");
+      const hBlock = new Block("H");
+      const xBlock = new Block("X");
+      const yBlock = new Block("Y");
+      const zBlock = new Block("Z");
+      const sBlock = new Block("S");
+      const tBlock = new Block("T");
 
-      expect(hGate.color).toEqual("cyan");
-      expect(xGate.color).toEqual("blue");
-      expect(yGate.color).toEqual("orange");
-      expect(zGate.color).toEqual("green");
-      expect(sGate.color).toEqual("purple");
-      expect(tGate.color).toEqual("red");
+      expect(hBlock.color).toEqual("cyan");
+      expect(xBlock.color).toEqual("blue");
+      expect(yBlock.color).toEqual("orange");
+      expect(zBlock.color).toEqual("green");
+      expect(sBlock.color).toEqual("purple");
+      expect(tBlock.color).toEqual("red");
     });
 
     it("should initialize x and y with 0", function () {
-      const gate = new Gate("H");
+      const block = new Block("H");
 
-      expect(gate.x).toBe(0);
-      expect(gate.y).toBe(0);
+      expect(block.x).toBe(0);
+      expect(block.y).toBe(0);
     });
   });
 
@@ -94,61 +94,61 @@ describe("Gate", () => {
       document.body.appendChild(board);
     });
 
-    it("H gate should draw its own shape", function () {
-      const gate = new Gate("H");
+    it("H block should draw its own shape", function () {
+      const block = new Block("H");
       const ctx = Board.createBoardCanvasContext();
 
-      gate.draw(ctx);
+      block.draw(ctx);
       const events = ctx.__getEvents();
 
       expect(events).toMatchSnapshot();
     });
 
-    it("X gate should draw its own shape", function () {
-      const gate = new Gate("X");
+    it("X block should draw its own shape", function () {
+      const block = new Block("X");
       const ctx = Board.createBoardCanvasContext();
 
-      gate.draw(ctx);
+      block.draw(ctx);
       const events = ctx.__getEvents();
 
       expect(events).toMatchSnapshot();
     });
 
-    it("Y gate should draw its own shape", function () {
-      const gate = new Gate("Y");
+    it("Y block should draw its own shape", function () {
+      const block = new Block("Y");
       const ctx = Board.createBoardCanvasContext();
 
-      gate.draw(ctx);
+      block.draw(ctx);
       const events = ctx.__getEvents();
 
       expect(events).toMatchSnapshot();
     });
 
-    it("Z gate should draw its own shape", function () {
-      const gate = new Gate("Z");
+    it("Z block should draw its own shape", function () {
+      const block = new Block("Z");
       const ctx = Board.createBoardCanvasContext();
 
-      gate.draw(ctx);
+      block.draw(ctx);
       const events = ctx.__getEvents();
 
       expect(events).toMatchSnapshot();
     });
 
-    it("S gate should draw its own shape", function () {
-      const gate = new Gate("S");
+    it("S block should draw its own shape", function () {
+      const block = new Block("S");
       const ctx = Board.createBoardCanvasContext();
 
-      gate.draw(ctx);
+      block.draw(ctx);
       const events = ctx.__getEvents();
 
       expect(events).toMatchSnapshot();
     });
 
-    it("T gate should draw its own shape", function () {
-      const gate = new Gate("T");
+    it("T block should draw its own shape", function () {
+      const block = new Block("T");
       const ctx = Board.createBoardCanvasContext();
 
-      gate.draw(ctx);
+      block.draw(ctx);
       const events = ctx.__getEvents();
 
       expect(events).toMatchSnapshot();
@@ -157,22 +157,22 @@ describe("Gate", () => {
 
   describe("move", () => {
     it("should update its x, y and shape", function () {
-      const gate = new Gate("H");
-      const moveGate = new Gate("H");
-      moveGate.x = 2;
-      moveGate.y = 3;
-      moveGate.shape = [
+      const block = new Block("H");
+      const moveBlock = new Block("H");
+      moveBlock.x = 2;
+      moveBlock.y = 3;
+      moveBlock.shape = [
         ["I", "H", "I", "I"],
         ["I", "H", "I", "I"],
         ["I", "H", "I", "I"],
         ["I", "H", "I", "I"],
       ];
 
-      gate.move(moveGate);
+      block.move(moveBlock);
 
-      expect(gate.x).toEqual(2);
-      expect(gate.y).toEqual(3);
-      expect(gate.shape).toEqual([
+      expect(block.x).toEqual(2);
+      expect(block.y).toEqual(3);
+      expect(block.shape).toEqual([
         ["I", "H", "I", "I"],
         ["I", "H", "I", "I"],
         ["I", "H", "I", "I"],

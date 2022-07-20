@@ -34,17 +34,17 @@ const SHAPES = [
 ];
 const COLORS = ["cyan", "blue", "orange", "green", "purple", "red"];
 
-export class Gate {
+export class Block {
   static random() {
-    const typeId = this.randomizeGateType();
-    const gate = new Gate(this.NAMES[typeId]);
+    const typeId = this.randomizeBlockType();
+    const block = new Block(this.NAMES[typeId]);
 
-    return gate;
+    return block;
   }
 
   // TODO: implement TGM (The Grand Master series) randomizer
-  static randomizeGateType() {
-    const noOfTypes = Gate.NAMES.length;
+  static randomizeBlockType() {
+    const noOfTypes = Block.NAMES.length;
     return Math.floor(Math.random() * noOfTypes);
   }
 
@@ -61,12 +61,12 @@ export class Gate {
   }
 
   constructor(name) {
-    const typeId = Gate.NAMES.indexOf(name);
-    if (typeId === -1) throw new Error(`Invalid gate name: ${name}`);
+    const typeId = Block.NAMES.indexOf(name);
+    if (typeId === -1) throw new Error(`Invalid block name: ${name}`);
 
     this.name = name;
-    this.shape = Gate.SHAPES[typeId];
-    this.color = Gate.COLORS[typeId];
+    this.shape = Block.SHAPES[typeId];
+    this.color = Block.COLORS[typeId];
     this.x = 0;
     this.y = 0;
   }
@@ -88,9 +88,9 @@ export class Gate {
     });
   }
 
-  move(gate) {
-    this.x = gate.x;
-    this.y = gate.y;
-    this.shape = gate.shape;
+  move(block) {
+    this.x = block.x;
+    this.y = block.y;
+    this.shape = block.shape;
   }
 }

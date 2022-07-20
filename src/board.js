@@ -1,5 +1,5 @@
 import { GATES_PER_LEVEL, KEY, LEVEL, POINTS, moves } from "./constants.js";
-import { Gate } from "./gate.js";
+import { Block } from "./block.js";
 
 const COLS = 10;
 const ROWS = 20;
@@ -50,8 +50,8 @@ export class Board {
     this.ctx = ctx;
     this.ctxNext = ctxNext;
     this.grid = this._getEmptyBoard();
-    this._setNextGate();
-    this._setCurrentGate();
+    this._setNextBlock();
+    this._setCurrentBlock();
   }
 
   // Get matrix filled with zeros.
@@ -61,30 +61,30 @@ export class Board {
     );
   }
 
-  rotate(gate) {
-    const newGate = JSON.parse(JSON.stringify(gate));
+  rotate(block) {
+    const newBlock = JSON.parse(JSON.stringify(block));
 
     // Transpose matrix
-    for (let y = 0; y < gate.shape.length; ++y) {
+    for (let y = 0; y < block.shape.length; ++y) {
       for (let x = 0; x < y; ++x) {
-        [newGate.shape[x][y], newGate.shape[y][x]] = [
-          newGate.shape[y][x],
-          newGate.shape[x][y],
+        [newBlock.shape[x][y], newBlock.shape[y][x]] = [
+          newBlock.shape[y][x],
+          newBlock.shape[x][y],
         ];
       }
     }
 
     // Reverse the order of the columns.
-    newGate.shape.forEach((row) => row.reverse());
+    newBlock.shape.forEach((row) => row.reverse());
 
-    return newGate;
+    return newBlock;
   }
 
-  isValidPosition(gate) {
-    return gate.shape.every((row, dy) => {
+  isValidPosition(block) {
+    return block.shape.every((row, dy) => {
       return row.every((each, dx) => {
-        const x = gate.x + dx;
-        const y = gate.y + dy;
+        const x = block.x + dx;
+        const y = block.y + dy;
         return (
           each === "I" ||
           (this._isInsideWalls(x, y) && this._isNotOccupied(x, y))
@@ -106,10 +106,10 @@ export class Board {
   }
 
   drop(account, time) {
-    let gate = moves[KEY.DOWN](this);
+    let block = moves[KEY.DOWN](this);
 
-    if (this.isValidPosition(gate)) {
-      this.gate.move(gate);
+    if (this.isValidPosition(block)) {
+      this.block.move(block);
     } else {
       this._freeze();
 
@@ -119,33 +119,33 @@ export class Board {
         if (reducedGates === 0 && numDroppedGates === 0) break;
       }
 
-      if (this.gate.y === 0) {
+      if (this.block.y === 0) {
         // Game over
         return false;
       }
-      this._setCurrentGate();
+      this._setCurrentBlock();
     }
     return true;
   }
 
-  _setNextGate() {
+  _setNextBlock() {
     const { width, height } = this.ctxNext.canvas;
-    this.nextGate = Gate.random();
+    this.nextBlock = Block.random();
     this.ctxNext.clearRect(0, 0, width, height);
-    this.nextGate.draw(this.ctxNext);
+    this.nextBlock.draw(this.ctxNext);
   }
 
-  _setCurrentGate() {
-    this.gate = this.nextGate;
-    this.gate.x = 3;
-    this._setNextGate();
+  _setCurrentBlock() {
+    this.block = this.nextBlock;
+    this.block.x = 3;
+    this._setNextBlock();
   }
 
   _freeze() {
-    this.gate.shape.forEach((row, y) => {
+    this.block.shape.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value !== "I") {
-          this.grid[y + this.gate.y][x + this.gate.x] = value;
+          this.grid[y + this.block.y][x + this.block.x] = value;
         }
       });
     });
@@ -157,9 +157,9 @@ export class Board {
     this.grid.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value !== "I") {
-          const index = Gate.NAMES.indexOf(value);
+          const index = Block.NAMES.indexOf(value);
 
-          this.ctx.fillStyle = Gate.COLORS[index];
+          this.ctx.fillStyle = Block.COLORS[index];
           this.ctx.fillRect(x, y, 1, 1);
 
           this.ctx.fillStyle = "#000";

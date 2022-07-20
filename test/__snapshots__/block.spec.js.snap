@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Gate draw H gate should draw its own shape 1`] = `
+exports[`Block draw H block should draw its own shape 1`] = `
 Array [
   Object {
     "props": Object {
@@ -324,7 +324,7 @@ Array [
 ]
 `;
 
-exports[`Gate draw S gate should draw its own shape 1`] = `
+exports[`Block draw S block should draw its own shape 1`] = `
 Array [
   Object {
     "props": Object {
@@ -1924,7 +1924,7 @@ Array [
 ]
 `;
 
-exports[`Gate draw T gate should draw its own shape 1`] = `
+exports[`Block draw T block should draw its own shape 1`] = `
 Array [
   Object {
     "props": Object {
@@ -3843,7 +3843,7 @@ Array [
 ]
 `;
 
-exports[`Gate draw X gate should draw its own shape 1`] = `
+exports[`Block draw X block should draw its own shape 1`] = `
 Array [
   Object {
     "props": Object {
@@ -4486,7 +4486,7 @@ Array [
 ]
 `;
 
-exports[`Gate draw Y gate should draw its own shape 1`] = `
+exports[`Block draw Y block should draw its own shape 1`] = `
 Array [
   Object {
     "props": Object {
@@ -5448,7 +5448,7 @@ Array [
 ]
 `;
 
-exports[`Gate draw Z gate should draw its own shape 1`] = `
+exports[`Block draw Z block should draw its own shape 1`] = `
 Array [
   Object {
     "props": Object {

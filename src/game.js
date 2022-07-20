@@ -56,14 +56,14 @@ export class Game {
       if (event.keyCode === KEY.SPACE) {
         // Hard drop
         while (this.board.isValidPosition(gate)) {
-          this.board.gate.move(gate);
+          this.board.block.move(gate);
           this.account.score += POINTS.HARD_DROP;
           gate = moves[KEY.SPACE](this.board);
         }
       }
 
       if (this.board.isValidPosition(gate)) {
-        this.board.gate.move(gate);
+        this.board.block.move(gate);
         if (event.keyCode === KEY.DOWN) {
           this.account.score += POINTS.SOFT_DROP;
         }
@@ -121,7 +121,7 @@ export class Game {
 
     this.ctx.clearRect(0, 0, width, height);
     this.board.draw();
-    this.board.gate.draw(this.ctx);
+    this.board.block.draw(this.ctx);
   }
 
   showHighScores() {
