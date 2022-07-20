@@ -1,4 +1,17 @@
-import { GATES_PER_LEVEL, KEY, LEVEL, POINTS, moves } from "./constants.js";
+import {
+  I,
+  H,
+  X,
+  Y,
+  Z,
+  S,
+  T,
+  GATES_PER_LEVEL,
+  KEY,
+  LEVEL,
+  POINTS,
+  moves,
+} from "./constants.js";
 import { Block } from "./block.js";
 
 const COLS = 10;
@@ -56,9 +69,7 @@ export class Board {
 
   // Get matrix filled with zeros.
   _getEmptyBoard() {
-    return Array.from({ length: Board.ROWS }, () =>
-      Array(Board.COLS).fill("I")
-    );
+    return Array.from({ length: Board.ROWS }, () => Array(Board.COLS).fill(I));
   }
 
   rotate(block) {
@@ -86,15 +97,14 @@ export class Board {
         const x = block.x + dx;
         const y = block.y + dy;
         return (
-          each === "I" ||
-          (this._isInsideWalls(x, y) && this._isNotOccupied(x, y))
+          each === I || (this._isInsideWalls(x, y) && this._isNotOccupied(x, y))
         );
       });
     });
   }
 
   _isNotOccupied(x, y) {
-    return this.grid[y] && this.grid[y][x] === "I";
+    return this.grid[y] && this.grid[y][x] === I;
   }
 
   _isInsideWalls(x, y) {
@@ -144,7 +154,7 @@ export class Board {
   _freeze() {
     this.block.shape.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value !== "I") {
+        if (value !== I) {
           this.grid[y + this.block.y][x + this.block.x] = value;
         }
       });
@@ -156,7 +166,7 @@ export class Board {
 
     this.grid.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value !== "I") {
+        if (value !== I) {
           const index = Block.NAMES.indexOf(value);
 
           this.ctx.fillStyle = Block.COLORS[index];
@@ -177,43 +187,43 @@ export class Board {
       for (let x = 0; x < Board.COLS; x++) {
         const gateName = this.grid[y][x];
 
-        if (gateName !== "I") {
+        if (gateName !== I) {
           if (gateName === this.grid[y - 1][x]) {
             // HH, XX, YY, ZZ → I
             if (
-              gateName === "H" ||
-              gateName === "X" ||
-              gateName === "Y" ||
-              gateName === "Z"
+              gateName === H ||
+              gateName === X ||
+              gateName === Y ||
+              gateName === Z
             ) {
-              this.grid[y][x] = "I";
-              this.grid[y - 1][x] = "I";
+              this.grid[y][x] = I;
+              this.grid[y - 1][x] = I;
 
               gates += 2;
               account.score += this._getGateReducePoints(2, account.level);
-            } else if (gateName === "S") {
+            } else if (gateName === S) {
               // SS = Z
-              this.grid[y][x] = "Z";
-              this.grid[y - 1][x] = "I";
+              this.grid[y][x] = Z;
+              this.grid[y - 1][x] = I;
 
               gates += 1;
               account.score += this._getGateReducePoints(1, account.level);
-            } else if (gateName === "T") {
+            } else if (gateName === T) {
               // TT = S
-              this.grid[y][x] = "S";
-              this.grid[y - 1][x] = "I";
+              this.grid[y][x] = S;
+              this.grid[y - 1][x] = I;
 
               gates += 1;
               account.score += this._getGateReducePoints(1, account.level);
             }
-          } else if (gateName === "X" && this.grid[y - 1][x] === "Z") {
+          } else if (gateName === X && this.grid[y - 1][x] === Z) {
             // XZ = Y
-            this.grid[y][x] = "Y";
-            this.grid[y - 1][x] = "I";
-          } else if (gateName === "Z" && this.grid[y - 1][x] === "X") {
+            this.grid[y][x] = Y;
+            this.grid[y - 1][x] = I;
+          } else if (gateName === Z && this.grid[y - 1][x] === X) {
             // ZX = Y
-            this.grid[y][x] = "Y";
-            this.grid[y - 1][x] = "I";
+            this.grid[y][x] = Y;
+            this.grid[y - 1][x] = I;
           }
         }
       }
@@ -247,13 +257,13 @@ export class Board {
       for (let x = 0; x < Board.COLS; x++) {
         const gateName = this.grid[y][x];
 
-        if (gateName !== "I") {
+        if (gateName !== I) {
           const sameColorGates = [];
           this._findSameColorGates(y, x, sameColorGates);
 
           const droppable = sameColorGates.every((each) => {
             return (
-              each.y + 1 < Board.ROWS && this.grid[each.y + 1][each.x] === "I"
+              each.y + 1 < Board.ROWS && this.grid[each.y + 1][each.x] === I
             );
           });
 
@@ -264,8 +274,8 @@ export class Board {
                 targetRow < Board.ROWS;
                 targetRow++
               ) {
-                if (this.grid[targetRow][gate.x] === "I") {
-                  this.grid[targetRow - 1][gate.x] = "I";
+                if (this.grid[targetRow][gate.x] === I) {
+                  this.grid[targetRow - 1][gate.x] = I;
                   this.grid[targetRow][gate.x] = gateName;
                 }
               }

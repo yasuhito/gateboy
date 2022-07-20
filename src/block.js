@@ -1,34 +1,36 @@
-const NAMES = ["H", "X", "Y", "Z", "S", "T"];
+import { I, H, X, Y, Z, S, T } from "./constants.js";
+
+const NAMES = [H, X, Y, Z, S, T];
 const SHAPES = [
   [
-    ["I", "I", "I", "I"],
-    ["H", "H", "H", "H"],
-    ["I", "I", "I", "I"],
-    ["I", "I", "I", "I"],
+    [I, I, I, I],
+    [H, H, H, H],
+    [I, I, I, I],
+    [I, I, I, I],
   ],
   [
-    ["X", "I", "I"],
-    ["X", "X", "X"],
-    ["I", "I", "I"],
+    [X, I, I],
+    [X, X, X],
+    [I, I, I],
   ],
   [
-    ["I", "I", "Y"],
-    ["Y", "Y", "Y"],
-    ["I", "I", "I"],
+    [I, I, Y],
+    [Y, Y, Y],
+    [I, I, I],
   ],
   [
-    ["Z", "Z"],
-    ["Z", "Z"],
+    [Z, Z],
+    [Z, Z],
   ],
   [
-    ["I", "S", "S"],
-    ["S", "S", "I"],
-    ["I", "I", "I"],
+    [I, S, S],
+    [S, S, I],
+    [I, I, I],
   ],
   [
-    ["I", "T", "I"],
-    ["T", "T", "T"],
-    ["I", "I", "I"],
+    [I, T, I],
+    [T, T, T],
+    [I, I, I],
   ],
   // [[7, 7, 'I'], ['I', 7, 7], ['I', 'I', 'I']]
 ];
@@ -73,8 +75,8 @@ export class Block {
 
   draw(ctx) {
     this.shape.forEach((row, y) => {
-      row.forEach((value, x) => {
-        if (value === "I") return;
+      row.forEach((gate, x) => {
+        if (gate === I) return;
 
         // draw gate rectangle
         ctx.fillStyle = this.color;

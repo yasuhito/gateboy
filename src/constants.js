@@ -1,3 +1,11 @@
+export const I = "I";
+export const H = "H";
+export const X = "X";
+export const Y = "Y";
+export const Z = "Z";
+export const S = "S";
+export const T = "T";
+
 export const NO_OF_HIGH_SCORES = 10;
 export const HIGH_SCORES = "highScores";
 
