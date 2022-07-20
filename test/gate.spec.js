@@ -146,4 +146,30 @@ describe("Gate", () => {
       expect(events).toMatchSnapshot();
     });
   });
+
+  describe("move", () => {
+    it("should update its x, y and shape", function () {
+      const gate = new Gate("H");
+      const moveGate = new Gate("H");
+      moveGate.x = 2;
+      moveGate.y = 3;
+      moveGate.shape = [
+        ["I", "H", "I", "I"],
+        ["I", "H", "I", "I"],
+        ["I", "H", "I", "I"],
+        ["I", "H", "I", "I"],
+      ];
+
+      gate.move(moveGate);
+
+      expect(gate.x).toEqual(2);
+      expect(gate.y).toEqual(3);
+      expect(gate.shape).toEqual([
+        ["I", "H", "I", "I"],
+        ["I", "H", "I", "I"],
+        ["I", "H", "I", "I"],
+        ["I", "H", "I", "I"],
+      ]);
+    });
+  });
 });
