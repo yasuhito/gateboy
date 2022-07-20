@@ -1,4 +1,4 @@
-import {HIGH_SCORES, NO_OF_HIGH_SCORES, KEY, LEVEL, POINTS, ctx, ctxNext, moves} from './constants.js'
+import {HIGH_SCORES, NO_OF_HIGH_SCORES, KEY, LEVEL, POINTS, getBoardCanvasContext, getNextCanvasContext, moves} from './constants.js'
 import {Board} from './board.js';
 
 let board = null;
@@ -15,6 +15,9 @@ let account = new Proxy(accountValues, {
     return true;
   }
 });
+
+const ctx = getBoardCanvasContext()
+const ctxNext = getNextCanvasContext()
 
 showHighScores();
 
@@ -61,7 +64,7 @@ function draw() {
   ctx.clearRect(0, 0, width, height);
 
   board.draw();
-  board.gate.draw();
+  board.gate.draw(ctx);
 }
 
 function resetGame() {

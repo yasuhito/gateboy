@@ -1,4 +1,4 @@
-import {COLS, COLORS, GATES_PER_LEVEL, KEY, LEVEL, NAMES, POINTS, ROWS, moves} from './constants.js'
+import {COLS, GATES_PER_LEVEL, KEY, LEVEL, POINTS, ROWS, moves} from './constants.js'
 import { Gate } from './gate.js';
 
 export class Board {
@@ -81,9 +81,9 @@ export class Board {
 
   setNextGate() {
     const { width, height } = this.ctxNext.canvas;
-    this.nextGate = new Gate(this.ctxNext);
+    this.nextGate = Gate.random();
     this.ctxNext.clearRect(0, 0, width, height);
-    this.nextGate.draw();
+    this.nextGate.draw(this.ctxNext);
   }
 
   setCurrentGate() {
@@ -109,9 +109,9 @@ export class Board {
     this.grid.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value !== 'I') {
-          const index = NAMES.indexOf(value)
+          const index = Gate.NAMES.indexOf(value)
 
-          this.ctx.fillStyle = COLORS[index];
+          this.ctx.fillStyle = Gate.COLORS[index];
           this.ctx.fillRect(x, y, 1, 1);
 
           this.ctx.fillStyle = '#000';
