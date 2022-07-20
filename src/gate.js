@@ -1,5 +1,3 @@
-import {COLORS} from './constants.js';
-
 const NAMES = ['H', 'X', 'Y', 'Z', 'S', 'T']
 const SHAPES = [
   [['I', 'I', 'I', 'I'], ['H', 'H', 'H', 'H'], ['I', 'I', 'I', 'I'], ['I', 'I', 'I', 'I']],
@@ -10,6 +8,7 @@ const SHAPES = [
   [['I', 'T', 'I'], ['T', 'T', 'T'], ['I', 'I', 'I']],
   // [[7, 7, 'I'], ['I', 7, 7], ['I', 'I', 'I']]
 ];
+const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
 
 export class Gate {
   static get NAMES() {
@@ -20,13 +19,17 @@ export class Gate {
     return SHAPES;
   }
 
+  static get COLORS() {
+    return COLORS;
+  }
+
   constructor(ctx) {
     this.ctx = ctx;
 
-    const typeId = this.randomizeTetrominoType(COLORS.length);
+    const typeId = this.randomizeTetrominoType(Gate.COLORS.length);
     this.name = Gate.NAMES[typeId];
     this.shape = Gate.SHAPES[typeId];
-    this.color = COLORS[typeId];
+    this.color = Gate.COLORS[typeId];
 
     this.x = 0;
     this.y = 0;

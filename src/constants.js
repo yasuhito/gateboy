@@ -3,7 +3,6 @@ export const ROWS = 20;
 const BLOCK_SIZE = 30;
 export const NO_OF_HIGH_SCORES = 10;
 export const HIGH_SCORES = 'highScores';
-export const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
 
 export const POINTS = {
   SINGLE: 100,

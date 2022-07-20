@@ -22,6 +22,13 @@ describe('new Gate', () => {
     expect(Gate.SHAPES.includes(gate.shape)).toBe(true);
   })
 
+  it('should have random color', function () {
+    const context = getBoardCanvasContext();
+    const gate = new Gate(context);
+
+    expect(Gate.COLORS.includes(gate.color)).toBe(true);
+  })
+
   it('should initialize x and y with 0', function () {
     const context = getBoardCanvasContext();
     const gate = new Gate(context);
