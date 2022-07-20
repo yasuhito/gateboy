@@ -1,39 +1,54 @@
 import {Gate} from '../src/gate.js';
 import {getBoardCanvasContext} from '../src/constants.js';
 
-describe('new Gate', () => {
+describe('Gate', () => {
   beforeEach(function() {
     const board = document.createElement('canvas');
     board.id = 'board'
     document.body.appendChild(board);
   });
 
-  it('should have random name', function () {
-    const context = getBoardCanvasContext();
-    const gate = new Gate(context);
+  describe('new', () => {
+    it('should have name', function () {
+      const gate = new Gate('H');
 
-    expect(Gate.NAMES.includes(gate.name)).toBe(true);
+      expect(gate.name).toEqual('H');
+    })
+
+    it('should have shape', function () {
+      const gate = new Gate('H');
+
+      expect(gate.shape).toEqual([
+        ['I', 'I', 'I', 'I'],
+        ['H', 'H', 'H', 'H'],
+        ['I', 'I', 'I', 'I'],
+        ['I', 'I', 'I', 'I']
+      ]);
+    })
+
+    it('should have color', function () {
+      const gate = new Gate('H');
+
+      expect(gate.color).toEqual('cyan');
+    })
+
+    it('should initialize x and y with 0', function () {
+      const gate = new Gate('H');
+
+      expect(gate.x).toBe(0)
+      expect(gate.y).toBe(0)
+    })
   })
 
-  it('should have random shape', function () {
-    const context = getBoardCanvasContext();
-    const gate = new Gate(context);
+  describe('draw', () => {
+    it('should draw its shape without errors', function () {
+      const gate = new Gate('H');
+      const ctx = getBoardCanvasContext();
 
-    expect(Gate.SHAPES.includes(gate.shape)).toBe(true);
-  })
+      gate.draw(ctx)
+      const events = ctx.__getEvents();
 
-  it('should have random color', function () {
-    const context = getBoardCanvasContext();
-    const gate = new Gate(context);
-
-    expect(Gate.COLORS.includes(gate.color)).toBe(true);
-  })
-
-  it('should initialize x and y with 0', function () {
-    const context = getBoardCanvasContext();
-    const gate = new Gate(context);
-
-    expect(gate.x).toBe(0)
-    expect(gate.y).toBe(0)
+      expect(events).toMatchSnapshot();
+    })
   })
 })

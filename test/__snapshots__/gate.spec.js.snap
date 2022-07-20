@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gate draw should draw its shape without errors 1`] = `
+Array [
+  Object {
+    "props": Object {
+      "x": 30,
+      "y": 30,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "scale",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 0,
+      "y": 2,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 1,
+      "y": 2,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 2,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 2,
+      "y": 2,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 3,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 3,
+      "y": 2,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+]
+`;

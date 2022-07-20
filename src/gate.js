@@ -11,6 +11,19 @@ const SHAPES = [
 const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
 
 export class Gate {
+  static random() {
+    const typeId = this.randomizeGateType();
+    const gate = new Gate(this.NAMES[typeId])
+
+    return gate
+  }
+
+  // TODO: implement TGM (The Grand Master series) randomizer
+  static randomizeGateType() {
+    const noOfTypes = Gate.NAMES.length;
+    return Math.floor(Math.random() * noOfTypes);
+  }
+
   static get NAMES() {
     return NAMES;
   }
@@ -23,47 +36,36 @@ export class Gate {
     return COLORS;
   }
 
-  constructor(ctx) {
-    this.ctx = ctx;
+  constructor(name) {
+    const typeId = Gate.NAMES.indexOf(name)
 
-    const typeId = this.randomizeTetrominoType(Gate.COLORS.length);
-    this.name = Gate.NAMES[typeId];
+    this.name = name
     this.shape = Gate.SHAPES[typeId];
     this.color = Gate.COLORS[typeId];
-
     this.x = 0;
     this.y = 0;
   }
 
-  draw() {
+  draw(ctx) {
     this.shape.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value !== 'I') {
-          this.ctx.fillStyle = this.color;
-          this.ctx.fillRect(this.x + x, this.y + y, 1, 1);
+        if (value === 'I') return;
 
-          // draw gate name
-          this.ctx.fillStyle = '#000';
-          this.ctx.font = '1px sans-serif';
-          this.ctx.fillText(this.name, this.x + x, this.y + y + 1);
-        }
+        // draw gate rectangle
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x + x, this.y + y, 1, 1);
+
+        // draw gate name
+        ctx.fillStyle = '#000';
+        ctx.font = '1px sans-serif';
+        ctx.fillText(this.name, this.x + x, this.y + y + 1);
       });
     });
-
-    // draw gate name
-    // this.ctx.fillStyle = '#000';
-    // this.ctx.font = '1px sans-serif';
-    // this.ctx.fillText(this.name, this.x, this.y + 1);
   }
 
   move(gate) {
     this.x = gate.x;
     this.y = gate.y;
     this.shape = gate.shape;
-  }
-
-  // TODO: implement TGM (The Grand Master series) randomizer
-  randomizeTetrominoType(noOfTypes) {
-    return Math.floor(Math.random() * noOfTypes);
   }
 }

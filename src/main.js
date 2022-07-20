@@ -64,7 +64,7 @@ function draw() {
   ctx.clearRect(0, 0, width, height);
 
   board.draw();
-  board.gate.draw();
+  board.gate.draw(ctx);
 }
 
 function resetGame() {

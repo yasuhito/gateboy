@@ -81,9 +81,9 @@ export class Board {
 
   setNextGate() {
     const { width, height } = this.ctxNext.canvas;
-    this.nextGate = new Gate(this.ctxNext);
+    this.nextGate = Gate.random();
     this.ctxNext.clearRect(0, 0, width, height);
-    this.nextGate.draw();
+    this.nextGate.draw(this.ctxNext);
   }
 
   setCurrentGate() {
