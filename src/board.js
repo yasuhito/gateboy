@@ -80,13 +80,13 @@ export class Board {
     return newGate;
   }
 
-  valid(gate) {
+  isValidPosition(gate) {
     return gate.shape.every((row, dy) => {
-      return row.every((value, dx) => {
-        let x = gate.x + dx;
-        let y = gate.y + dy;
+      return row.every((each, dx) => {
+        const x = gate.x + dx;
+        const y = gate.y + dy;
         return (
-          value === "I" ||
+          each === "I" ||
           (this._isInsideWalls(x, y) && this._isNotOccupied(x, y))
         );
       });
@@ -108,7 +108,7 @@ export class Board {
   drop(account, time) {
     let gate = moves[KEY.DOWN](this);
 
-    if (this.valid(gate)) {
+    if (this.isValidPosition(gate)) {
       this.gate.move(gate);
     } else {
       this._freeze();
