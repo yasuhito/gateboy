@@ -62,23 +62,34 @@ export const LEVEL = {
 }
 Object.freeze(LEVEL);
 
-const canvas = document.getElementById('board');
-export const ctx = canvas.getContext('2d');
-const canvasNext = document.getElementById('next');
-export const ctxNext = canvasNext.getContext('2d');
+export function getBoardCanvasContext() {
+  const canvas = document.getElementById('board');
+  const ctx = canvas.getContext('2d');
 
-// Calculate size of canvas from constants.
-ctx.canvas.width = COLS * BLOCK_SIZE;
-ctx.canvas.height = ROWS * BLOCK_SIZE;
+  // Calculate size of canvas from constants.
+  ctx.canvas.width = COLS * BLOCK_SIZE;
+  ctx.canvas.height = ROWS * BLOCK_SIZE;
 
-// Size canvas for four blocks.
-ctxNext.canvas.width = 4 * BLOCK_SIZE;
-ctxNext.canvas.height = 4 * BLOCK_SIZE;
+  // Scale blocks
+  ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
 
-// Scale blocks
-ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
-ctxNext.scale(BLOCK_SIZE, BLOCK_SIZE);
+  return ctx
+}
 
+export function getNextCanvasContext() {
+  const canvasNext = document.getElementById('next');
+  const ctxNext = canvasNext.getContext('2d');
+
+  // Size canvas for four blocks.
+  ctxNext.canvas.width = 4 * BLOCK_SIZE;
+  ctxNext.canvas.height = 4 * BLOCK_SIZE;
+
+  // Scale blocks
+  // ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
+  ctxNext.scale(BLOCK_SIZE, BLOCK_SIZE);
+
+  return ctxNext;
+}
 
 export const KEY = {
   SPACE: 32,
