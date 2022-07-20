@@ -38,6 +38,7 @@ export class Gate {
 
   constructor(name) {
     const typeId = Gate.NAMES.indexOf(name)
+    if (typeId === -1) throw new Error(`Invalid gate name: ${name}`)
 
     this.name = name
     this.shape = Gate.SHAPES[typeId];

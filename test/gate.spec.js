@@ -9,6 +9,12 @@ describe('Gate', () => {
       expect(gate.name).toEqual('H');
     })
 
+    it('should throw an exception when an invalid name is passed', function () {
+      expect(() => {
+        new Gate('?');
+      }).toThrow('Invalid gate name: ?');
+    })
+
     it('should have its own unique shape', function () {
       const hGate = new Gate('H');
       const xGate = new Gate('X');
