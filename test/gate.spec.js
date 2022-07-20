@@ -1,5 +1,5 @@
-import {getBoardCanvasContext} from './constants.js';
-import {Gate} from './gate.js';
+import {getBoardCanvasContext} from '../constants.js';
+import {Gate} from '../gate.js';
 
 describe('new', () => {
   beforeEach(function() {
