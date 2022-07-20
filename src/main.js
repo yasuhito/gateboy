@@ -1,23 +1,30 @@
-import {HIGH_SCORES, NO_OF_HIGH_SCORES, KEY, LEVEL, POINTS, getBoardCanvasContext, getNextCanvasContext, moves} from './constants.js'
-import {Board} from './board.js';
+import {
+  HIGH_SCORES,
+  NO_OF_HIGH_SCORES,
+  KEY,
+  LEVEL,
+  POINTS,
+  moves,
+} from "./constants.js";
+import { Board } from "./board.js";
 
 let board = null;
 let requestId = null;
 let accountValues = {
   score: 0,
   gates: 0,
-  level: 0
-}
+  level: 0,
+};
 let account = new Proxy(accountValues, {
   set: (target, key, value) => {
     target[key] = value;
     updateAccount(key, value);
     return true;
-  }
+  },
 });
 
-const ctx = getBoardCanvasContext()
-const ctxNext = getNextCanvasContext()
+const ctx = Board.createBoardCanvasContext();
+const ctxNext = Board.createNextCanvasContext();
 
 showHighScores();
 
@@ -55,8 +62,8 @@ function handleKeyPress(event) {
 }
 
 function addEventListener() {
-  document.removeEventListener('keydown', handleKeyPress);
-  document.addEventListener('keydown', handleKeyPress);
+  document.removeEventListener("keydown", handleKeyPress);
+  document.addEventListener("keydown", handleKeyPress);
 }
 
 function draw() {
@@ -75,8 +82,8 @@ function resetGame() {
   time = { start: performance.now(), elapsed: 0, level: LEVEL[0] };
 }
 
-const playButton = document.getElementById('play-button')
-playButton.addEventListener('click', play);
+const playButton = document.getElementById("play-button");
+playButton.addEventListener("click", play);
 
 function play() {
   resetGame();
@@ -113,11 +120,11 @@ function animate(now = 0) {
 
 function gameOver() {
   cancelAnimationFrame(requestId);
-  ctx.fillStyle = 'black';
+  ctx.fillStyle = "black";
   ctx.fillRect(1, 3, 8, 1.2);
-  ctx.font = '1px Arial';
-  ctx.fillStyle = 'red';
-  ctx.fillText('GAME OVER', 1.8, 4);
+  ctx.font = "1px Arial";
+  ctx.fillStyle = "red";
+  ctx.fillText("GAME OVER", 1.8, 4);
 
   checkHighScore(account.score);
 }
@@ -134,7 +141,7 @@ function checkHighScore(score) {
 }
 
 function saveHighScore(score, highScores) {
-  const name = prompt('You got a highscore! Enter name:');
+  const name = prompt("You got a highscore! Enter name:");
 
   const newScore = { score, name };
 
@@ -152,5 +159,5 @@ function showHighScores() {
 
   highScoreList.innerHTML = highScores
     .map((score) => `<li>${score.score} - ${score.name}`)
-    .join('');
+    .join("");
 }

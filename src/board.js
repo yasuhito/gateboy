@@ -1,7 +1,51 @@
-import {COLS, GATES_PER_LEVEL, KEY, LEVEL, POINTS, ROWS, moves} from './constants.js'
-import { Gate } from './gate.js';
+import { GATES_PER_LEVEL, KEY, LEVEL, POINTS, moves } from "./constants.js";
+import { Gate } from "./gate.js";
+
+const COLS = 10;
+const ROWS = 20;
+const BLOCK_SIZE = 30;
 
 export class Board {
+  static createBoardCanvasContext() {
+    const canvas = document.getElementById("board");
+    const ctx = canvas.getContext("2d");
+
+    // Calculate size of canvas from constants.
+    ctx.canvas.width = Board.COLS * Board.BLOCK_SIZE;
+    ctx.canvas.height = Board.ROWS * Board.BLOCK_SIZE;
+
+    // Scale blocks
+    ctx.scale(Board.BLOCK_SIZE, Board.BLOCK_SIZE);
+
+    return ctx;
+  }
+
+  static createNextCanvasContext() {
+    const canvasNext = document.getElementById("next");
+    const ctx = canvasNext.getContext("2d");
+
+    // Size canvas for four blocks.
+    ctx.canvas.width = 4 * Board.BLOCK_SIZE;
+    ctx.canvas.height = 4 * Board.BLOCK_SIZE;
+
+    // Scale blocks
+    ctx.scale(Board.BLOCK_SIZE, Board.BLOCK_SIZE);
+
+    return ctx;
+  }
+
+  static get COLS() {
+    return COLS;
+  }
+
+  static get ROWS() {
+    return ROWS;
+  }
+
+  static get BLOCK_SIZE() {
+    return BLOCK_SIZE;
+  }
+
   constructor(ctx, ctxNext) {
     this.ctx = ctx;
     this.ctxNext = ctxNext;
@@ -12,25 +56,24 @@ export class Board {
 
   // Get matrix filled with zeros.
   getEmptyBoard() {
-    return Array.from(
-      {length: ROWS}, () => Array(COLS).fill('I')
+    return Array.from({ length: Board.ROWS }, () =>
+      Array(Board.COLS).fill("I")
     );
   }
 
-  rotate(gate){
+  rotate(gate) {
     // Clone with JSON
     let g = JSON.parse(JSON.stringify(gate));
 
     // Transpose matrix, g is the Gate
     for (let y = 0; y < gate.shape.length; ++y) {
       for (let x = 0; x < y; ++x) {
-        [g.shape[x][y], g.shape[y][x]] =
-        [g.shape[y][x], g.shape[x][y]];
+        [g.shape[x][y], g.shape[y][x]] = [g.shape[y][x], g.shape[x][y]];
       }
     }
 
     // Reverse the order of the columns.
-    g.shape.forEach(row => row.reverse());
+    g.shape.forEach((row) => row.reverse());
 
     return g;
   }
@@ -40,20 +83,23 @@ export class Board {
       return row.every((value, dx) => {
         let x = gate.x + dx;
         let y = gate.y + dy;
-        return value === 'I' || (this.isInsideWalls(x, y) && this.isNotOccupied(x, y));
+        return (
+          value === "I" ||
+          (this.isInsideWalls(x, y) && this.isNotOccupied(x, y))
+        );
       });
     });
   }
 
   isNotOccupied(x, y) {
-    return this.grid[y] && this.grid[y][x] === 'I';
+    return this.grid[y] && this.grid[y][x] === "I";
   }
 
   isInsideWalls(x, y) {
     return (
       x >= 0 && // Left wall
-      x < COLS && // Right wall
-      y < ROWS // Bottom wall
+      x < Board.COLS && // Right wall
+      y < Board.ROWS // Bottom wall
     );
   }
 
@@ -71,7 +117,8 @@ export class Board {
         if (reducedGates === 0 && numDroppedGates === 0) break;
       }
 
-      if (this.gate.y === 0) { // Game over
+      if (this.gate.y === 0) {
+        // Game over
         return false;
       }
       this.setCurrentGate();
@@ -96,11 +143,11 @@ export class Board {
   freeze() {
     this.gate.shape.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value !== 'I') {
+        if (value !== "I") {
           this.grid[y + this.gate.y][x + this.gate.x] = value;
         }
       });
-   });
+    });
   }
 
   draw() {
@@ -108,14 +155,14 @@ export class Board {
 
     this.grid.forEach((row, y) => {
       row.forEach((value, x) => {
-        if (value !== 'I') {
-          const index = Gate.NAMES.indexOf(value)
+        if (value !== "I") {
+          const index = Gate.NAMES.indexOf(value);
 
           this.ctx.fillStyle = Gate.COLORS[index];
           this.ctx.fillRect(x, y, 1, 1);
 
-          this.ctx.fillStyle = '#000';
-          this.ctx.font = '1px sans-serif';
+          this.ctx.fillStyle = "#000";
+          this.ctx.font = "1px sans-serif";
           this.ctx.fillText(value, x, y + 1);
         }
       });
@@ -125,38 +172,47 @@ export class Board {
   reduceGates(account, time) {
     let gates = 0;
 
-    for (let y = ROWS - 1; y > 0; y--) {
-      for (let x = 0; x < COLS; x++) {
-        const gateName = this.grid[y][x]
+    for (let y = Board.ROWS - 1; y > 0; y--) {
+      for (let x = 0; x < Board.COLS; x++) {
+        const gateName = this.grid[y][x];
 
-        if (gateName !== 'I') {
+        if (gateName !== "I") {
           if (gateName === this.grid[y - 1][x]) {
             // HH, XX, YY, ZZ → I
-            if (gateName === 'H' || gateName === 'X' || gateName === 'Y' || gateName === 'Z') {
-              this.grid[y][x] = 'I'
-              this.grid[y - 1][x] = 'I'
+            if (
+              gateName === "H" ||
+              gateName === "X" ||
+              gateName === "Y" ||
+              gateName === "Z"
+            ) {
+              this.grid[y][x] = "I";
+              this.grid[y - 1][x] = "I";
 
-              gates += 2
+              gates += 2;
               account.score += this.getGateReducePoints(2, account.level);
-            } else if (gateName === 'S') { // SS = Z
-              this.grid[y][x] = 'Z'
-              this.grid[y - 1][x] = 'I'
+            } else if (gateName === "S") {
+              // SS = Z
+              this.grid[y][x] = "Z";
+              this.grid[y - 1][x] = "I";
 
-              gates += 1
+              gates += 1;
               account.score += this.getGateReducePoints(1, account.level);
-            } else if (gateName === 'T') { // TT = S
-              this.grid[y][x] = 'S'
-              this.grid[y - 1][x] = 'I'
+            } else if (gateName === "T") {
+              // TT = S
+              this.grid[y][x] = "S";
+              this.grid[y - 1][x] = "I";
 
-              gates += 1
+              gates += 1;
               account.score += this.getGateReducePoints(1, account.level);
             }
-          } else if (gateName === 'X' && this.grid[y - 1][x] === 'Z') { // XZ = Y
-            this.grid[y][x] = 'Y'
-            this.grid[y - 1][x] = 'I'
-          } else if (gateName === 'Z' && this.grid[y - 1][x] === 'X') { // ZX = Y
-            this.grid[y][x] = 'Y'
-            this.grid[y - 1][x] = 'I'
+          } else if (gateName === "X" && this.grid[y - 1][x] === "Z") {
+            // XZ = Y
+            this.grid[y][x] = "Y";
+            this.grid[y - 1][x] = "I";
+          } else if (gateName === "Z" && this.grid[y - 1][x] === "X") {
+            // ZX = Y
+            this.grid[y][x] = "Y";
+            this.grid[y - 1][x] = "I";
           }
         }
       }
@@ -165,7 +221,7 @@ export class Board {
     if (gates > 0) {
       // Add points if we cleared some gates
       account.score += this.getGateReducePoints(gates, account.level);
-      account.gates += gates
+      account.gates += gates;
 
       // If we have reached the gates for next level
       if (account.gates >= GATES_PER_LEVEL) {
@@ -184,58 +240,72 @@ export class Board {
   }
 
   dropUnconnectedGates() {
-    let numDroppedGates = 0
+    let numDroppedGates = 0;
 
-    for (let y = ROWS - 2; y > 0; y--) {
-      for (let x = 0; x < COLS; x++) {
-        const gateName = this.grid[y][x]
+    for (let y = Board.ROWS - 2; y > 0; y--) {
+      for (let x = 0; x < Board.COLS; x++) {
+        const gateName = this.grid[y][x];
 
-        if (gateName !== 'I') {
-          const sameColorGates = []
-          this.findSameColorGates(y, x, sameColorGates)
+        if (gateName !== "I") {
+          const sameColorGates = [];
+          this.findSameColorGates(y, x, sameColorGates);
 
           const droppable = sameColorGates.every((each) => {
-            return each.y + 1 < ROWS && this.grid[each.y + 1][each.x] === 'I'
-          })
+            return (
+              each.y + 1 < Board.ROWS && this.grid[each.y + 1][each.x] === "I"
+            );
+          });
 
           if (droppable) {
             for (const gate of sameColorGates) {
-              for (let targetRow = gate.y + 1; targetRow < ROWS; targetRow++) {
-                if (this.grid[targetRow][gate.x] === 'I') {
-                  this.grid[targetRow - 1][gate.x] = 'I'
-                  this.grid[targetRow][gate.x] = gateName
+              for (
+                let targetRow = gate.y + 1;
+                targetRow < Board.ROWS;
+                targetRow++
+              ) {
+                if (this.grid[targetRow][gate.x] === "I") {
+                  this.grid[targetRow - 1][gate.x] = "I";
+                  this.grid[targetRow][gate.x] = gateName;
                 }
               }
             }
 
-            numDroppedGates++
+            numDroppedGates++;
           }
         }
       }
     }
-    return numDroppedGates
+    return numDroppedGates;
   }
 
   findSameColorGates(row, col, gates) {
-    const done = gates.some((each) => each.y === row && each.x === col)
-    if (done) return
+    const done = gates.some((each) => each.y === row && each.x === col);
+    if (done) return;
 
-    const gateName = this.grid[row][col]
-    gates.push({y: row, x: col })
+    const gateName = this.grid[row][col];
+    gates.push({ y: row, x: col });
 
-    if (row + 1 < ROWS && this.grid[row + 1][col] === gateName) this.findSameColorGates(row + 1, col, gates)
-    if (col + 1 < COLS && this.grid[row][col + 1] === gateName) this.findSameColorGates(row, col + 1, gates)
-    if (row - 1 >= 0 && this.grid[row - 1][col] === gateName) this.findSameColorGates(row - 1, col, gates)
-    if (col - 1 >= 0 && this.grid[row][col - 1] === gateName) this.findSameColorGates(row, col - 1, gates)
+    if (row + 1 < Board.ROWS && this.grid[row + 1][col] === gateName)
+      this.findSameColorGates(row + 1, col, gates);
+    if (col + 1 < Board.COLS && this.grid[row][col + 1] === gateName)
+      this.findSameColorGates(row, col + 1, gates);
+    if (row - 1 >= 0 && this.grid[row - 1][col] === gateName)
+      this.findSameColorGates(row - 1, col, gates);
+    if (col - 1 >= 0 && this.grid[row][col - 1] === gateName)
+      this.findSameColorGates(row, col - 1, gates);
   }
 
   getGateReducePoints(gates, level) {
     const gateReducePoints =
-      gates === 1 ? POINTS.SINGLE :
-      gates === 2 ? POINTS.DOUBLE :
-      gates === 3 ? POINTS.TRIPLE :
-      gates === 4 ? POINTS.TETRIS :
-      0;
+      gates === 1
+        ? POINTS.SINGLE
+        : gates === 2
+        ? POINTS.DOUBLE
+        : gates === 3
+        ? POINTS.TRIPLE
+        : gates === 4
+        ? POINTS.TETRIS
+        : 0;
 
     return (level + 1) * gateReducePoints;
   }

@@ -1,14 +1,14 @@
 import { Gate } from "../src/gate.js";
-import { getBoardCanvasContext } from "../src/constants.js";
+import { Board } from "../src/board.js";
 
 describe("Gate", () => {
   describe("random", () => {
     it("should return a random gate", function () {
-      const gate = Gate.random()
+      const gate = Gate.random();
 
-      expect(gate).toBeInstanceOf(Gate)
-    })
-  })
+      expect(gate).toBeInstanceOf(Gate);
+    });
+  });
 
   describe("new", () => {
     it("should have name", function () {
@@ -96,7 +96,7 @@ describe("Gate", () => {
 
     it("H gate should draw its own shape", function () {
       const gate = new Gate("H");
-      const ctx = getBoardCanvasContext();
+      const ctx = Board.createBoardCanvasContext();
 
       gate.draw(ctx);
       const events = ctx.__getEvents();
@@ -106,7 +106,7 @@ describe("Gate", () => {
 
     it("X gate should draw its own shape", function () {
       const gate = new Gate("X");
-      const ctx = getBoardCanvasContext();
+      const ctx = Board.createBoardCanvasContext();
 
       gate.draw(ctx);
       const events = ctx.__getEvents();
@@ -116,7 +116,7 @@ describe("Gate", () => {
 
     it("Y gate should draw its own shape", function () {
       const gate = new Gate("Y");
-      const ctx = getBoardCanvasContext();
+      const ctx = Board.createBoardCanvasContext();
 
       gate.draw(ctx);
       const events = ctx.__getEvents();
@@ -126,7 +126,7 @@ describe("Gate", () => {
 
     it("Z gate should draw its own shape", function () {
       const gate = new Gate("Z");
-      const ctx = getBoardCanvasContext();
+      const ctx = Board.createBoardCanvasContext();
 
       gate.draw(ctx);
       const events = ctx.__getEvents();
@@ -136,7 +136,7 @@ describe("Gate", () => {
 
     it("S gate should draw its own shape", function () {
       const gate = new Gate("S");
-      const ctx = getBoardCanvasContext();
+      const ctx = Board.createBoardCanvasContext();
 
       gate.draw(ctx);
       const events = ctx.__getEvents();
@@ -146,7 +146,7 @@ describe("Gate", () => {
 
     it("T gate should draw its own shape", function () {
       const gate = new Gate("T");
-      const ctx = getBoardCanvasContext();
+      const ctx = Board.createBoardCanvasContext();
 
       gate.draw(ctx);
       const events = ctx.__getEvents();
