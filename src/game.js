@@ -22,7 +22,7 @@ export class Game {
     this.account = new Proxy(this.accountValues, {
       set: (target, key, value) => {
         target[key] = value;
-        this.updateAccount(key, value);
+        this._updateAccount(key, value);
         return true;
       },
     });
@@ -30,24 +30,23 @@ export class Game {
   }
 
   play() {
-    this.resetGame();
-    this.addEventListener();
+    this._resetGame();
+    this._addKeydownEventListener();
 
     // If we have an old game running then cancel it
     if (this.requestId) {
       cancelAnimationFrame(this.requestId);
     }
     this.time.start = performance.now();
-    this.animate();
+    this._animate();
   }
 
-  addEventListener() {
-    document.removeEventListener("keydown", this.handleKeyPress.bind(this));
-    document.addEventListener("keydown", this.handleKeyPress.bind(this));
+  _addKeydownEventListener() {
+    document.removeEventListener("keydown", this._handleKeyPress.bind(this));
+    document.addEventListener("keydown", this._handleKeyPress.bind(this));
   }
 
-  handleKeyPress(event) {
-    // Stop the event from bubbling.
+  _handleKeyPress(event) {
     event.preventDefault();
 
     if (moves[event.keyCode]) {
@@ -72,14 +71,14 @@ export class Game {
     }
   }
 
-  updateAccount(key, value) {
+  _updateAccount(key, value) {
     let element = document.getElementById(key);
     if (element) {
       element.textContent = value;
     }
   }
 
-  resetGame() {
+  _resetGame() {
     this.account.score = 0;
     this.account.gates = 0;
     this.account.level = 0;
@@ -87,7 +86,7 @@ export class Game {
     this.time = { start: performance.now(), elapsed: 0, level: LEVEL[0] };
   }
 
-  animate(now = 0) {
+  _animate(now = 0) {
     // Update elapsed time.
     this.time.elapsed = now - this.time.start;
 
@@ -97,16 +96,16 @@ export class Game {
       this.time.start = now;
 
       if (!this.board.drop(this.account, this.time)) {
-        this.gameOver();
+        this._gameOver();
         return;
       }
     }
 
-    this.draw();
-    this.requestId = requestAnimationFrame(this.animate.bind(this));
+    this._draw();
+    this.requestId = requestAnimationFrame(this._animate.bind(this));
   }
 
-  gameOver() {
+  _gameOver() {
     cancelAnimationFrame(this.requestId);
     this.ctx.fillStyle = "black";
     this.ctx.fillRect(1, 3, 8, 1.2);
@@ -114,36 +113,15 @@ export class Game {
     this.ctx.fillStyle = "red";
     this.ctx.fillText("GAME OVER", 1.8, 4);
 
-    this.checkHighScore(this.account.score);
+    this._checkHighScore(this.account.score);
   }
 
-  draw() {
+  _draw() {
     const { width, height } = this.ctx.canvas;
 
     this.ctx.clearRect(0, 0, width, height);
     this.board.draw();
     this.board.gate.draw(this.ctx);
-  }
-
-  checkHighScore(score) {
-    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) || [];
-    const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
-
-    if (score > lowestScore) {
-      this.saveHighScore(score, highScores);
-      this.showHighScores();
-    }
-  }
-
-  saveHighScore(score, highScores) {
-    const name = prompt("You got a highscore! Enter name:");
-    const newScore = { score, name };
-
-    highScores.push(newScore);
-    highScores.sort((a, b) => b.score - a.score);
-    highScores.splice(NO_OF_HIGH_SCORES);
-
-    localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores));
   }
 
   showHighScores() {
@@ -153,5 +131,26 @@ export class Game {
     highScoreList.innerHTML = highScores
       .map((score) => `<li>${score.score} - ${score.name}</li>`)
       .join("");
+  }
+
+  _checkHighScore(score) {
+    const highScores = JSON.parse(localStorage.getItem(HIGH_SCORES)) || [];
+    const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
+
+    if (score > lowestScore) {
+      this._saveHighScore(score, highScores);
+      this.showHighScores();
+    }
+  }
+
+  _saveHighScore(score, highScores) {
+    const name = prompt("You got a highscore! Enter name:");
+    const newScore = { score, name };
+
+    highScores.push(newScore);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(NO_OF_HIGH_SCORES);
+
+    localStorage.setItem(HIGH_SCORES, JSON.stringify(highScores));
   }
 }
