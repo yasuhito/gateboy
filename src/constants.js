@@ -3,27 +3,7 @@ export const ROWS = 20;
 const BLOCK_SIZE = 30;
 export const NO_OF_HIGH_SCORES = 10;
 export const HIGH_SCORES = 'highScores';
-export const NAMES = ['H', 'X', 'Y', 'Z', 'S', 'T']
 export const COLORS = ['cyan', 'blue', 'orange', 'green', 'purple', 'red'];
-
-// const SHAPES = [
-//   [['H']],
-//   [['X']],
-//   [['Y']],
-//   [['Z']],
-//   [['S']],
-//   [['T']]
-// ];
-
-export const SHAPES = [
-  [['I', 'I', 'I', 'I'], ['H', 'H', 'H', 'H'], ['I', 'I', 'I', 'I'], ['I', 'I', 'I', 'I']],
-  [['X', 'I', 'I'], ['X', 'X', 'X'], ['I', 'I', 'I']],
-  [['I', 'I', 'Y'], ['Y', 'Y', 'Y'], ['I', 'I', 'I']],
-  [['Z', 'Z'], ['Z', 'Z']],
-  [['I', 'S', 'S'], ['S', 'S', 'I'], ['I', 'I', 'I']],
-  [['I', 'T', 'I'], ['T', 'T', 'T'], ['I', 'I', 'I']],
-  // [[7, 7, 'I'], ['I', 7, 7], ['I', 'I', 'I']]
-];
 
 export const POINTS = {
   SINGLE: 100,

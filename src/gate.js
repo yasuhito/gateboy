@@ -1,12 +1,31 @@
-import {COLORS, NAMES, SHAPES} from './constants.js';
+import {COLORS} from './constants.js';
+
+const NAMES = ['H', 'X', 'Y', 'Z', 'S', 'T']
+const SHAPES = [
+  [['I', 'I', 'I', 'I'], ['H', 'H', 'H', 'H'], ['I', 'I', 'I', 'I'], ['I', 'I', 'I', 'I']],
+  [['X', 'I', 'I'], ['X', 'X', 'X'], ['I', 'I', 'I']],
+  [['I', 'I', 'Y'], ['Y', 'Y', 'Y'], ['I', 'I', 'I']],
+  [['Z', 'Z'], ['Z', 'Z']],
+  [['I', 'S', 'S'], ['S', 'S', 'I'], ['I', 'I', 'I']],
+  [['I', 'T', 'I'], ['T', 'T', 'T'], ['I', 'I', 'I']],
+  // [[7, 7, 'I'], ['I', 7, 7], ['I', 'I', 'I']]
+];
 
 export class Gate {
+  static get NAMES() {
+    return NAMES;
+  }
+
+  static get SHAPES() {
+    return SHAPES;
+  }
+
   constructor(ctx) {
     this.ctx = ctx;
 
     const typeId = this.randomizeTetrominoType(COLORS.length);
-    this.name = NAMES[typeId];
-    this.shape = SHAPES[typeId];
+    this.name = Gate.NAMES[typeId];
+    this.shape = Gate.SHAPES[typeId];
     this.color = COLORS[typeId];
 
     this.x = 0;
