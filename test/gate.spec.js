@@ -2,6 +2,14 @@ import { Gate } from "../src/gate.js";
 import { getBoardCanvasContext } from "../src/constants.js";
 
 describe("Gate", () => {
+  describe("random", () => {
+    it("should return a random gate", function () {
+      const gate = Gate.random()
+
+      expect(gate).toBeInstanceOf(Gate)
+    })
+  })
+
   describe("new", () => {
     it("should have name", function () {
       const gate = new Gate("H");
