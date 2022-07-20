@@ -21,9 +21,19 @@ describe('Gate', () => {
     })
 
     it('should have its own unique color', function () {
-      const gate = new Gate('H');
+      const hGate = new Gate('H');
+      const xGate = new Gate('X');
+      const yGate = new Gate('Y');
+      const zGate = new Gate('Z');
+      const sGate = new Gate('S');
+      const tGate = new Gate('T');
 
-      expect(gate.color).toEqual('cyan');
+      expect(hGate.color).toEqual('cyan');
+      expect(xGate.color).toEqual('blue');
+      expect(yGate.color).toEqual('orange');
+      expect(zGate.color).toEqual('green');
+      expect(sGate.color).toEqual('purple');
+      expect(tGate.color).toEqual('red');
     })
 
     it('should initialize x and y with 0', function () {
