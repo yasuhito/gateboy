@@ -11,7 +11,11 @@ import { Board } from "./board.js";
 export class Game {
   constructor() {
     this.board = null;
-    this.requestId = null;
+    this.requestBlockDropAnimationId = null;
+    this.requestGateReductionAnimationId = null;
+    this.requestGateDropAnimationId = null;
+    this.reducingGates = false;
+    this.droppingGates = false;
     this.ctx = Board.createBoardCanvasContext();
     this.ctxNext = Board.createNextCanvasContext();
     this.accountValues = {
@@ -26,7 +30,16 @@ export class Game {
         return true;
       },
     });
-    this.time = { start: 0, elapsed: 0, level: 1000 };
+    this.time = {
+      startBlockDrop: 0,
+      elapsedBlockDrop: 0,
+      startGateReduction: 0,
+      elapsedReduction: 0,
+      startGateDrop: 0,
+      elapsedGateDrop: 0,
+      level: 1000,
+    };
+    this.keyDownEventListener = this._handleKeyPress.bind(this)
   }
 
   play() {
@@ -34,16 +47,16 @@ export class Game {
     this._addKeydownEventListener();
 
     // If we have an old game running then cancel it
-    if (this.requestId) {
-      cancelAnimationFrame(this.requestId);
+    if (this.requestBlockDropAnimationId) {
+      cancelAnimationFrame(this.requestBlockDropAnimationId);
     }
-    this.time.start = performance.now();
-    this._animate();
+    this.time.startBlockDrop = performance.now();
+    this._animateBlockDrop();
   }
 
   _addKeydownEventListener() {
-    document.removeEventListener("keydown", this._handleKeyPress.bind(this));
-    document.addEventListener("keydown", this._handleKeyPress.bind(this));
+    document.removeEventListener("keydown", this.keyDownEventListener);
+    document.addEventListener("keydown", this.keyDownEventListener);
   }
 
   _handleKeyPress(event) {
@@ -79,35 +92,116 @@ export class Game {
   }
 
   _resetGame() {
+    const now = performance.now()
+
     this.account.score = 0;
     this.account.gates = 0;
     this.account.level = 0;
     this.board = new Board(this.ctx, this.ctxNext);
-    this.time = { start: performance.now(), elapsed: 0, level: LEVEL[0] };
+    this.time = {
+      startBlockDrop: now,
+      elapsedBlockDrop: 0,
+      startGateReduction: now,
+      elapsedReduction: 0,
+      startGateDrop: now,
+      elapsedGateDrop: 0,
+      level: LEVEL[0],
+    };
   }
 
-  _animate(now = 0) {
+  _animateBlockDrop(now = 0) {
     // Update elapsed time.
-    this.time.elapsed = now - this.time.start;
+    this.time.elapsedBlockDrop = now - this.time.startBlockDrop;
 
-    // If elapsed time has passed time for current level
-    if (this.time.elapsed > this.time.level) {
+    if (!this.reducingGates && !this.droppingGates) {
+      // If elapsed time has passed time for current level
+      if (this.time.elapsedBlockDrop > this.time.level) {
+        // Restart counting from now
+        this.time.startBlockDrop = now;
+
+        const result = this.board.drop()
+        if (result.gameOver) {
+          this._gameOver();
+          return;
+        }
+
+        if (result.freeze) {
+          this.time.startGateReduction = now;
+          this._animateGateReduction(now);
+        }
+      }
+
+      this._draw();
+    }
+
+    this.requestBlockDropAnimationId = requestAnimationFrame(
+      this._animateBlockDrop.bind(this)
+    );
+  }
+
+  _animateGateReduction(now = 0) {
+    this.reducingGates = true;
+
+    let reducedGates = 0;
+
+    // Update elapsed time.
+    this.time.elapsedReduction = now - this.time.startGateReduction;
+
+    // If elapsed time > 100ms
+    if (this.time.elapsedReduction > 100 && !this.droppingGates) {
       // Restart counting from now
-      this.time.start = now;
+      this.time.startGateReduction = now;
 
-      const result = this.board.drop(this.account, this.time)
-      if (result.gameOver) {
-        this._gameOver();
+      reducedGates = this.board.reduceGates(this.account, this.time);
+
+      if (reducedGates > 0) {
+        this.board.draw();
+        this.time.startGateDrop = now;
+        this._animateGateDrop(now);
+      }
+
+      if (reducedGates === 0) {
+        this.reducingGates = false;
+        this.board._setCurrentBlock();
+        this._draw();
         return;
       }
     }
 
-    this._draw();
-    this.requestId = requestAnimationFrame(this._animate.bind(this));
+    this.requestBlockDropAnimationId = requestAnimationFrame(
+      this._animateGateReduction.bind(this)
+    );
+  }
+
+  _animateGateDrop(now = 0) {
+    this.droppingGates = true;
+
+    let droppedGates = 0;
+
+    // Update elapsed time.
+    this.time.elapsedGateDrop = now - this.time.startGateDrop;
+
+    // If elapsed time > 100ms
+    if (this.time.elapsedGateDrop > 100) {
+      // Restart counting from now
+      this.time.startGateDrop = now;
+
+      droppedGates = this.board.dropUnconnectedGates();
+      this.board.draw();
+
+      if (droppedGates === 0) {
+        this.droppingGates = false;
+        return;
+      }
+    }
+
+    this.requestGateDropAnimationId = requestAnimationFrame(
+      this._animateGateDrop.bind(this)
+    );
   }
 
   _gameOver() {
-    cancelAnimationFrame(this.requestId);
+    cancelAnimationFrame(this.requestBlockDropAnimationId);
     this.ctx.fillStyle = "black";
     this.ctx.fillRect(1, 3, 8, 1.2);
     this.ctx.font = "1px Arial";
@@ -118,9 +212,6 @@ export class Game {
   }
 
   _draw() {
-    const { width, height } = this.ctx.canvas;
-
-    this.ctx.clearRect(0, 0, width, height);
     this.board.draw();
     this.board.block.draw(this.ctx);
   }

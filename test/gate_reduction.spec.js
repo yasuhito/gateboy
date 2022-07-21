@@ -29,8 +29,9 @@ describe("gate reduction rules", () => {
     board.block = new Block("H");
     const rotatedBlock = board.rotate(board.block);
     board.block.move(rotatedBlock);
+    hardDrop(board);
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
       // prettier-ignore
@@ -44,8 +45,9 @@ describe("gate reduction rules", () => {
   //  XX
   it("should reduce XX to I", function () {
     board.block = new Block("X");
+    hardDrop(board);
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -61,8 +63,9 @@ describe("gate reduction rules", () => {
   // YY
   it("should reduce YY to I", function () {
     board.block = new Block("Y");
+    hardDrop(board);
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -78,8 +81,9 @@ describe("gate reduction rules", () => {
   //
   it("should reduce ZZ to I", function () {
     board.block = new Block("Z");
+    hardDrop(board);
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
       // prettier-ignore
@@ -93,8 +97,10 @@ describe("gate reduction rules", () => {
   // SZS
   it("should reduce SS to Z", function () {
     board.block = new Block("S");
+    hardDrop(board);
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -110,8 +116,9 @@ describe("gate reduction rules", () => {
   // TST
   it("should reduce TT to S", function () {
     board.block = new Block("T");
+    hardDrop(board);
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -129,9 +136,14 @@ describe("gate reduction rules", () => {
   //  YX
   it("should reduce XZ to Y", function () {
     board.block = new Block("X");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+    board.reduceGates(account);
+
     board.block = new Block("Z");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
 
     for (let i = 0; i <= 17; i++) {
       // prettier-ignore
@@ -154,11 +166,20 @@ describe("gate reduction rules", () => {
   //  I
   it("should reduce XZ to Y", function () {
     board.block = new Block("X");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+    board.reduceGates(account);
+
     board.block = new Block("Z");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+
     board.block = new Block("X");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+    board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
       // prettier-ignore
@@ -174,11 +195,18 @@ describe("gate reduction rules", () => {
   //  ZZ
   it("should reduce XZ to Y", function () {
     board.block = new Block("H");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+
     board.block = new Block("X");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+    board.reduceGates(account);
+
     board.block = new Block("H");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    hardDrop(board);
+
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -187,4 +215,12 @@ describe("gate reduction rules", () => {
     // prettier-ignore
     expect(board.grid[19]).toStrictEqual(["I","Z","Z","I","I","I","I","I","I","I"]);
   });
+
+  function hardDrop(board) {
+    let freeze = false;
+
+    while (!freeze) {
+      freeze = board.drop().freeze;
+    }
+  }
 });

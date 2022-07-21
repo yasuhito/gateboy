@@ -115,27 +115,22 @@ export class Board {
     );
   }
 
-  drop(account, time) {
+  drop() {
     const block = moves[KEY.DOWN](this);
+    let freeze = false;
 
     if (this.isValidPosition(block)) {
       this.block.move(block);
     } else {
+      freeze = true;
       this._freeze();
 
-      for (;;) {
-        const reducedGates = this._reduceGates(account, time);
-        const numDroppedGates = this._dropUnconnectedGates();
-        if (reducedGates === 0 && numDroppedGates === 0) break;
-      }
-
       if (this.block.y === 0) {
-        return { gameOver: true };
+        return { gameOver: true, freeze: freeze };
       }
-      this._setCurrentBlock();
     }
 
-    return { gameOver: false };
+    return { gameOver: false, freeze: freeze };
   }
 
   _setNextBlock() {
@@ -162,7 +157,8 @@ export class Board {
   }
 
   draw() {
-    // console.table(this.grid)
+    const { width, height } = this.ctx.canvas;
+    this.ctx.clearRect(0, 0, width, height);
 
     this.grid.forEach((row, y) => {
       row.forEach((value, x) => {
@@ -180,7 +176,7 @@ export class Board {
     });
   }
 
-  _reduceGates(account, time) {
+  reduceGates(account, time) {
     let gates = 0;
 
     for (let y = Board.ROWS - 1; y > 0; y--) {
@@ -220,15 +216,22 @@ export class Board {
             // XZ = Y
             this.grid[y][x] = Y;
             this.grid[y - 1][x] = I;
+            gates += 1;
           } else if (gateName === Z && this.grid[y - 1][x] === X) {
             // ZX = Y
             this.grid[y][x] = Y;
             this.grid[y - 1][x] = I;
-          } else if (gateName === H && this.grid[y - 1][x] === X && this.grid[y - 2][x] === H) {
+            gates += 1;
+          } else if (
+            gateName === H &&
+            this.grid[y - 1][x] === X &&
+            this.grid[y - 2][x] === H
+          ) {
             // HXH = Z
             this.grid[y][x] = Z;
             this.grid[y - 1][x] = I;
             this.grid[y - 2][x] = I;
+            gates += 2;
           }
         }
       }
@@ -255,7 +258,7 @@ export class Board {
     return gates;
   }
 
-  _dropUnconnectedGates() {
+  dropUnconnectedGates() {
     let numDroppedGates = 0;
 
     for (let y = Board.ROWS - 2; y > 0; y--) {
@@ -274,19 +277,10 @@ export class Board {
 
           if (droppable) {
             for (const gate of sameColorGates) {
-              for (
-                let targetRow = gate.y + 1;
-                targetRow < Board.ROWS;
-                targetRow++
-              ) {
-                if (this.grid[targetRow][gate.x] === I) {
-                  this.grid[targetRow - 1][gate.x] = I;
-                  this.grid[targetRow][gate.x] = gateName;
-                }
-              }
+              this.grid[gate.y][gate.x] = I;
+              this.grid[gate.y + 1][gate.x] = gateName;
+              numDroppedGates++;
             }
-
-            numDroppedGates++;
           }
         }
       }
