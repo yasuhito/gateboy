@@ -268,4 +268,115 @@ describe("Board", () => {
       expect(board.isValidPosition(block)).toBeFalsy();
     });
   });
+
+  describe("drop", () => {
+    let board = null;
+    let account = null;
+
+    beforeEach(function () {
+      const ctx = Board.createBoardCanvasContext();
+      const ctxNext = Board.createNextCanvasContext();
+      board = new Board(ctx, ctxNext);
+      account = { score: 0, gates: 0, level: 0 }
+    });
+
+    it("should move down its block", function () {
+      board.drop()
+
+      expect(board.block.y).toBe(1)
+    })
+
+    it("should return { gameOver: false } if not game over", function () {
+      expect(board.drop().gameOver).toBeFalsy()
+    })
+
+    // HHHH
+    //  ↓
+    // HHHH
+    it("should freeze when H-block reaches the bottom", function () {
+      board.block = new Block("H")
+
+      for (let i = 0; i < 20; i++) board.drop(account)
+
+      for (let i = 0; i < 19; i++) {
+        expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"])
+      }
+      expect(board.grid[19]).toStrictEqual(["H","H","H","H","I","I","I","I","I","I"])
+    })
+
+    // X
+    // XXX
+    //  ↓
+    //  XX
+    it("should freeze and reduce gates when X-block reaches the bottom", function () {
+      board.block = new Block("X")
+
+      for (let i = 0; i < 20; i++) board.drop(account)
+
+      for (let i = 0; i < 19; i++) {
+        expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"])
+      }
+      expect(board.grid[19]).toStrictEqual(["I","X","X","I","I","I","I","I","I","I"])
+    })
+
+    //   Y
+    // YYY
+    //  ↓
+    // YY
+    it("should freeze and reduce gates when Y-block reaches the bottom", function () {
+      board.block = new Block("Y")
+
+      for (let i = 0; i < 20; i++) board.drop(account)
+
+      for (let i = 0; i < 19; i++) {
+        expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"])
+      }
+      expect(board.grid[19]).toStrictEqual(["Y","Y","I","I","I","I","I","I","I","I"])
+    })
+
+    // ZZ
+    // ZZ
+    //  ↓
+    //
+    it("should freeze and reduce gates when Z-block reaches the bottom", function () {
+      board.block = new Block("Z")
+
+      for (let i = 0; i < 20; i++) board.drop(account)
+
+      for (let i = 0; i < 19; i++) {
+        expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"])
+      }
+      expect(board.grid[19]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"])
+    })
+
+    //  SS
+    // SS
+    //  ↓
+    // SZS
+    it("should freeze and reduce gates when S-block reaches the bottom", function () {
+      board.block = new Block("S")
+
+      for (let i = 0; i < 20; i++) board.drop(account)
+
+      for (let i = 0; i < 19; i++) {
+        expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"])
+      }
+      expect(board.grid[19]).toStrictEqual(["S","Z","S","I","I","I","I","I","I","I"])
+    })
+
+    //  T
+    // TTT
+    //  ↓
+    // TST
+    it("should freeze and reduce gates when T-block reaches the bottom", function () {
+      board.block = new Block("T")
+
+      for (let i = 0; i < 20; i++) board.drop(account)
+
+      for (let i = 0; i < 19; i++) {
+        expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"])
+      }
+      expect(board.grid[19]).toStrictEqual(["T","S","T","I","I","I","I","I","I","I"])
+    })
+  })
 });

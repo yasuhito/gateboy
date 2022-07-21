@@ -95,7 +95,8 @@ export class Game {
       // Restart counting from now
       this.time.start = now;
 
-      if (!this.board.drop(this.account, this.time)) {
+      const result = this.board.drop(this.account, this.time)
+      if (result.gameOver) {
         this._gameOver();
         return;
       }

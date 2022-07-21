@@ -116,7 +116,7 @@ export class Board {
   }
 
   drop(account, time) {
-    let block = moves[KEY.DOWN](this);
+    const block = moves[KEY.DOWN](this);
 
     if (this.isValidPosition(block)) {
       this.block.move(block);
@@ -130,12 +130,12 @@ export class Board {
       }
 
       if (this.block.y === 0) {
-        // Game over
-        return false;
+        return { gameOver: true };
       }
       this._setCurrentBlock();
     }
-    return true;
+
+    return { gameOver: false };
   }
 
   _setNextBlock() {
