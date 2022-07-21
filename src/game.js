@@ -39,6 +39,7 @@ export class Game {
       elapsedGateDrop: 0,
       level: 1000,
     };
+    this.keyDownEventListener = this._handleKeyPress.bind(this)
   }
 
   play() {
@@ -54,8 +55,8 @@ export class Game {
   }
 
   _addKeydownEventListener() {
-    document.removeEventListener("keydown", this._handleKeyPress.bind(this));
-    document.addEventListener("keydown", this._handleKeyPress.bind(this));
+    document.removeEventListener("keydown", this.keyDownEventListener);
+    document.addEventListener("keydown", this.keyDownEventListener);
   }
 
   _handleKeyPress(event) {
@@ -91,16 +92,18 @@ export class Game {
   }
 
   _resetGame() {
+    const now = performance.now()
+
     this.account.score = 0;
     this.account.gates = 0;
     this.account.level = 0;
     this.board = new Board(this.ctx, this.ctxNext);
     this.time = {
-      startBlockDrop: performance.now(),
+      startBlockDrop: now,
       elapsedBlockDrop: 0,
-      startGateReduction: performance.now(),
+      startGateReduction: now,
       elapsedReduction: 0,
-      startGateDrop: performance.now(),
+      startGateDrop: now,
       elapsedGateDrop: 0,
       level: LEVEL[0],
     };
