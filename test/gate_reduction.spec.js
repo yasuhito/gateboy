@@ -30,7 +30,7 @@ describe("gate reduction rules", () => {
     const rotatedBlock = board.rotate(board.block);
     board.block.move(rotatedBlock);
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
@@ -46,7 +46,7 @@ describe("gate reduction rules", () => {
   it("should reduce XX to I", function () {
     board.block = new Block("X");
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
@@ -64,7 +64,7 @@ describe("gate reduction rules", () => {
   it("should reduce YY to I", function () {
     board.block = new Block("Y");
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
@@ -82,7 +82,7 @@ describe("gate reduction rules", () => {
   it("should reduce ZZ to I", function () {
     board.block = new Block("Z");
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
@@ -98,7 +98,7 @@ describe("gate reduction rules", () => {
   it("should reduce SS to Z", function () {
     board.block = new Block("S");
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
     board.dropUnconnectedGates();
 
@@ -117,7 +117,7 @@ describe("gate reduction rules", () => {
   it("should reduce TT to S", function () {
     board.block = new Block("T");
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
@@ -136,11 +136,11 @@ describe("gate reduction rules", () => {
   //  YX
   it("should reduce XZ to Y", function () {
     board.block = new Block("X");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     board.block = new Block("Z");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
     board.dropUnconnectedGates();
 
@@ -167,16 +167,16 @@ describe("gate reduction rules", () => {
   //  I
   it("should reduce XZ to Y", function () {
     board.block = new Block("X");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     board.block = new Block("Z");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
     board.dropUnconnectedGates();
 
     board.block = new Block("X");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
     board.dropUnconnectedGates();
     board.reduceGates(account);
@@ -195,14 +195,14 @@ describe("gate reduction rules", () => {
   //  ZZ
   it("should reduce XZ to Y", function () {
     board.block = new Block("H");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.block = new Block("X");
 
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
 
     board.block = new Block("H");
-    for (let i = 0; i <= 19; i++) board.drop(account);
+    for (let i = 0; i <= 19; i++) board.drop();
     board.reduceGates(account);
     board.dropUnconnectedGates();
     board.reduceGates(account);

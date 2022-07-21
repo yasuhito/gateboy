@@ -116,7 +116,7 @@ export class Game {
         // Restart counting from now
         this.time.startBlockDrop = now;
 
-        const result = this.board.drop(this.account, this.time);
+        const result = this.board.drop()
         if (result.gameOver) {
           this._gameOver();
           return;

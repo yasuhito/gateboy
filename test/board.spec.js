@@ -271,13 +271,11 @@ describe("Board", () => {
 
   describe("drop", () => {
     let board = null;
-    let account = null;
 
     beforeEach(function () {
       const ctx = Board.createBoardCanvasContext();
       const ctxNext = Board.createNextCanvasContext();
       board = new Board(ctx, ctxNext);
-      account = { score: 0, gates: 0, level: 0 };
     });
 
     it("should move down its block", function () {
@@ -296,7 +294,7 @@ describe("Board", () => {
     it("should freeze when its block reaches the bottom", function () {
       board.block = new Block("H");
 
-      for (let i = 0; i <= 19; i++) board.drop(account);
+      for (let i = 0; i <= 19; i++) board.drop();
 
       for (let i = 0; i < 19; i++) {
         // prettier-ignore

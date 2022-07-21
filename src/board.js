@@ -115,8 +115,7 @@ export class Board {
     );
   }
 
-  // TODO: account と time を消す
-  drop(account, time) {
+  drop() {
     const block = moves[KEY.DOWN](this);
     let freeze = false;
 
@@ -127,7 +126,7 @@ export class Board {
       this._freeze();
 
       if (this.block.y === 0) {
-        return { gameOver: true };
+        return { gameOver: true, freeze: freeze };
       }
     }
 
