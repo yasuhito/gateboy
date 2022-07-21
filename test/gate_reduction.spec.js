@@ -31,6 +31,7 @@ describe("gate reduction rules", () => {
     board.block.move(rotatedBlock);
 
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
       // prettier-ignore
@@ -46,6 +47,7 @@ describe("gate reduction rules", () => {
     board.block = new Block("X");
 
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -63,6 +65,7 @@ describe("gate reduction rules", () => {
     board.block = new Block("Y");
 
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -80,6 +83,7 @@ describe("gate reduction rules", () => {
     board.block = new Block("Z");
 
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
       // prettier-ignore
@@ -95,6 +99,8 @@ describe("gate reduction rules", () => {
     board.block = new Block("S");
 
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -112,6 +118,7 @@ describe("gate reduction rules", () => {
     board.block = new Block("T");
 
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
@@ -130,8 +137,14 @@ describe("gate reduction rules", () => {
   it("should reduce XZ to Y", function () {
     board.block = new Block("X");
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+
     board.block = new Block("Z");
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+
+    // console.table(board.grid)
 
     for (let i = 0; i <= 17; i++) {
       // prettier-ignore
@@ -155,10 +168,18 @@ describe("gate reduction rules", () => {
   it("should reduce XZ to Y", function () {
     board.block = new Block("X");
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+
     board.block = new Block("Z");
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+
     board.block = new Block("X");
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+    board.reduceGates(account);
 
     for (let i = 0; i <= 19; i++) {
       // prettier-ignore
@@ -176,9 +197,15 @@ describe("gate reduction rules", () => {
     board.block = new Block("H");
     for (let i = 0; i <= 19; i++) board.drop(account);
     board.block = new Block("X");
+
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+
     board.block = new Block("H");
     for (let i = 0; i <= 19; i++) board.drop(account);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+    board.reduceGates(account);
 
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
