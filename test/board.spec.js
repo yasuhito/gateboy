@@ -299,31 +299,11 @@ describe("Board", () => {
       for (let i = 0; i <= 19; i++) board.drop(account);
 
       for (let i = 0; i < 19; i++) {
-        expect(board.grid[i]).toStrictEqual([
-          "I",
-          "I",
-          "I",
-          "I",
-          "I",
-          "I",
-          "I",
-          "I",
-          "I",
-          "I",
-        ]);
+        // prettier-ignore
+        expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
       }
-      expect(board.grid[19]).toStrictEqual([
-        "H",
-        "H",
-        "H",
-        "H",
-        "I",
-        "I",
-        "I",
-        "I",
-        "I",
-        "I",
-      ]);
+      // prettier-ignore
+      expect(board.grid[19]).toStrictEqual(["H","H","H","H","I","I","I","I","I","I"]);
     });
   });
 });

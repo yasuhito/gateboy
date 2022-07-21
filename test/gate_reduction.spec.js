@@ -165,4 +165,26 @@ describe("gate reduction rules", () => {
       expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
     }
   });
+
+  //
+  // HHHH
+  //  XX
+  // HHHH
+  //  ↓
+  //  ZZ
+  it("should reduce XZ to Y", function () {
+    board.block = new Block("H");
+    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.block = new Block("X");
+    for (let i = 0; i <= 19; i++) board.drop(account);
+    board.block = new Block("H");
+    for (let i = 0; i <= 19; i++) board.drop(account);
+
+    for (let i = 0; i < 19; i++) {
+      // prettier-ignore
+      expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
+    }
+    // prettier-ignore
+    expect(board.grid[19]).toStrictEqual(["I","Z","Z","I","I","I","I","I","I","I"]);
+  });
 });

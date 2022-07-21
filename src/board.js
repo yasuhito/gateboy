@@ -224,6 +224,11 @@ export class Board {
             // ZX = Y
             this.grid[y][x] = Y;
             this.grid[y - 1][x] = I;
+          } else if (gateName === H && this.grid[y - 1][x] === X && this.grid[y - 2][x] === H) {
+            // HXH = Z
+            this.grid[y][x] = Z;
+            this.grid[y - 1][x] = I;
+            this.grid[y - 2][x] = I;
           }
         }
       }
