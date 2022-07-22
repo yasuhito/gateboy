@@ -3,10 +3,9 @@ import { I, H, X, Y, Z, S, T } from "./constants.js";
 const NAMES = [H, X, Y, Z, S, T];
 const SHAPES = [
   [
-    [I, I, I, I],
-    [H, H, H, H],
-    [I, I, I, I],
-    [I, I, I, I],
+    [I, H, I],
+    [H, H, H],
+    [I, I, I],
   ],
   [
     [X, I, I],
@@ -19,18 +18,19 @@ const SHAPES = [
     [I, I, I],
   ],
   [
-    [Z, Z],
-    [Z, Z],
-  ],
-  [
-    [I, S, S],
-    [S, S, I],
+    [I, Z, Z],
+    [Z, Z, I],
     [I, I, I],
   ],
   [
-    [I, T, I],
-    [T, T, T],
-    [I, I, I],
+    [S, S],
+    [S, S],
+  ],
+  [
+    [I, I, I, I],
+    [T, T, T, T],
+    [I, I, I, I],
+    [I, I, I, I],
   ],
   // [[7, 7, 'I'], ['I', 7, 7], ['I', 'I', 'I']]
 ];

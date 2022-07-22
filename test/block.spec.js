@@ -32,10 +32,9 @@ describe("Block", () => {
       const tBlock = new Block("T");
 
       expect(hBlock.shape).toEqual([
-        ["I", "I", "I", "I"],
-        ["H", "H", "H", "H"],
-        ["I", "I", "I", "I"],
-        ["I", "I", "I", "I"],
+        ["I", "H", "I"],
+        ["H", "H", "H"],
+        ["I", "I", "I"],
       ]);
       expect(xBlock.shape).toEqual([
         ["X", "I", "I"],
@@ -48,18 +47,19 @@ describe("Block", () => {
         ["I", "I", "I"],
       ]);
       expect(zBlock.shape).toEqual([
-        ["Z", "Z"],
-        ["Z", "Z"],
+        ["I", "Z", "Z"],
+        ["Z", "Z", "I"],
+        ["I", "I", "I"],
       ]);
       expect(sBlock.shape).toEqual([
-        ["I", "S", "S"],
-        ["S", "S", "I"],
-        ["I", "I", "I"],
+        ["S", "S"],
+        ["S", "S"],
       ]);
       expect(tBlock.shape).toEqual([
-        ["I", "T", "I"],
-        ["T", "T", "T"],
-        ["I", "I", "I"],
+        ["I", "I", "I", "I"],
+        ["T", "T", "T", "T"],
+        ["I", "I", "I", "I"],
+        ["I", "I", "I", "I"],
       ]);
     });
 

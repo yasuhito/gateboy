@@ -242,7 +242,18 @@ export class Board {
             this.grid[y - 1][x] = I;
             this.grid[y - 2][x] = I;
             gates += 2;
+          } else if (
+            gateName === S &&
+            this.grid[y - 1][x] === Z &&
+            this.grid[y - 2][x] === S
+          ) {
+            // SZS = Z
+            this.grid[y][x] = Z;
+            this.grid[y - 1][x] = I;
+            this.grid[y - 2][x] = I;
+            gates += 2;
           }
+
         }
       }
     }

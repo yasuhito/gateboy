@@ -35,6 +35,82 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
       "x": 0,
       "y": 1,
     },
@@ -233,82 +309,6 @@ Array [
       "maxWidth": null,
       "text": "H",
       "x": 2,
-      "y": 2,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#00ffff",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 3,
-      "y": 1,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "H",
-      "x": 3,
       "y": 2,
     },
     "transform": Array [
@@ -359,6 +359,82 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
       "x": 0,
       "y": 1,
     },
@@ -557,82 +633,6 @@ Array [
       "maxWidth": null,
       "text": "H",
       "x": 2,
-      "y": 2,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#00ffff",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 3,
-      "y": 1,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "H",
-      "x": 3,
       "y": 2,
     },
     "transform": Array [
@@ -1316,7 +1316,7 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
-      "x": 0,
+      "x": 1,
       "y": 0,
     },
     "transform": Array [
@@ -1361,7 +1361,7 @@ Array [
     "props": Object {
       "maxWidth": null,
       "text": "Z",
-      "x": 0,
+      "x": 1,
       "y": 1,
     },
     "transform": Array [
@@ -1392,7 +1392,7 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
-      "x": 1,
+      "x": 2,
       "y": 0,
     },
     "transform": Array [
@@ -1437,7 +1437,7 @@ Array [
     "props": Object {
       "maxWidth": null,
       "text": "Z",
-      "x": 1,
+      "x": 2,
       "y": 1,
     },
     "transform": Array [
@@ -1635,7 +1635,7 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
-      "x": 1,
+      "x": 0,
       "y": 0,
     },
     "transform": Array [
@@ -1680,7 +1680,7 @@ Array [
     "props": Object {
       "maxWidth": null,
       "text": "S",
-      "x": 1,
+      "x": 0,
       "y": 1,
     },
     "transform": Array [
@@ -1711,7 +1711,7 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
-      "x": 2,
+      "x": 1,
       "y": 0,
     },
     "transform": Array [
@@ -1756,7 +1756,7 @@ Array [
     "props": Object {
       "maxWidth": null,
       "text": "S",
-      "x": 2,
+      "x": 1,
       "y": 1,
     },
     "transform": Array [
@@ -1959,6 +1959,82 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
       "x": 0,
       "y": 1,
     },
@@ -2171,13 +2247,1532 @@ Array [
   },
   Object {
     "props": Object {
-      "value": "#00ffff",
+      "x": 30,
+      "y": 30,
     },
     "transform": Array [
-      30,
+      900,
       0,
       0,
-      30,
+      900,
+      0,
+      0,
+    ],
+    "type": "scale",
+  },
+  Object {
+    "props": Object {
+      "value": "#0000ff",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 0,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "X",
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#0000ff",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "X",
+      "x": 0,
+      "y": 2,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#0000ff",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "X",
+      "x": 1,
+      "y": 2,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#0000ff",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 2,
+      "y": 1,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "X",
+      "x": 2,
+      "y": 2,
+    },
+    "transform": Array [
+      900,
+      0,
+      0,
+      900,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "x": 30,
+      "y": 30,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "scale",
+  },
+  Object {
+    "props": Object {
+      "value": "#ffa500",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 2,
+      "y": 0,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Y",
+      "x": 2,
+      "y": 1,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#ffa500",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Y",
+      "x": 0,
+      "y": 2,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#ffa500",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Y",
+      "x": 1,
+      "y": 2,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#ffa500",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 2,
+      "y": 1,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Y",
+      "x": 2,
+      "y": 2,
+    },
+    "transform": Array [
+      27000,
+      0,
+      0,
+      27000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "x": 30,
+      "y": 30,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "scale",
+  },
+  Object {
+    "props": Object {
+      "value": "#008000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Z",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#008000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 2,
+      "y": 0,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Z",
+      "x": 2,
+      "y": 1,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#008000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Z",
+      "x": 0,
+      "y": 2,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#008000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "Z",
+      "x": 1,
+      "y": 2,
+    },
+    "transform": Array [
+      810000,
+      0,
+      0,
+      810000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "x": 30,
+      "y": 30,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "scale",
+  },
+  Object {
+    "props": Object {
+      "value": "#800080",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 0,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "S",
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#800080",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "S",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#800080",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "S",
+      "x": 0,
+      "y": 2,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#800080",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "S",
+      "x": 1,
+      "y": 2,
+    },
+    "transform": Array [
+      24300000,
+      0,
+      0,
+      24300000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "x": 30,
+      "y": 30,
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "scale",
+  },
+  Object {
+    "props": Object {
+      "value": "#ff0000",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 0,
+      "y": 1,
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "T",
+      "x": 0,
+      "y": 2,
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#ff0000",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "T",
+      "x": 1,
+      "y": 2,
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#ff0000",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
+      "x": 2,
+      "y": 1,
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "T",
+      "x": 2,
+      "y": 2,
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#ff0000",
+    },
+    "transform": Array [
+      729000000,
+      0,
+      0,
+      729000000,
       0,
       0,
     ],
@@ -2191,10 +3786,10 @@ Array [
       "y": 1,
     },
     "transform": Array [
-      30,
+      729000000,
       0,
       0,
-      30,
+      729000000,
       0,
       0,
     ],
@@ -2205,10 +3800,10 @@ Array [
       "value": "#000000",
     },
     "transform": Array [
-      30,
+      729000000,
       0,
       0,
-      30,
+      729000000,
       0,
       0,
     ],
@@ -2219,10 +3814,10 @@ Array [
       "value": "1px sans-serif",
     },
     "transform": Array [
-      30,
+      729000000,
       0,
       0,
-      30,
+      729000000,
       0,
       0,
     ],
@@ -2231,1603 +3826,8 @@ Array [
   Object {
     "props": Object {
       "maxWidth": null,
-      "text": "H",
+      "text": "T",
       "x": 3,
-      "y": 2,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "x": 30,
-      "y": 30,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "scale",
-  },
-  Object {
-    "props": Object {
-      "value": "#0000ff",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 0,
-      "y": 0,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "X",
-      "x": 0,
-      "y": 1,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#0000ff",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 0,
-      "y": 1,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "X",
-      "x": 0,
-      "y": 2,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#0000ff",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "X",
-      "x": 1,
-      "y": 2,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#0000ff",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 2,
-      "y": 1,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "X",
-      "x": 2,
-      "y": 2,
-    },
-    "transform": Array [
-      900,
-      0,
-      0,
-      900,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "x": 30,
-      "y": 30,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "scale",
-  },
-  Object {
-    "props": Object {
-      "value": "#ffa500",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 2,
-      "y": 0,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Y",
-      "x": 2,
-      "y": 1,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#ffa500",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 0,
-      "y": 1,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Y",
-      "x": 0,
-      "y": 2,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#ffa500",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Y",
-      "x": 1,
-      "y": 2,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#ffa500",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 2,
-      "y": 1,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Y",
-      "x": 2,
-      "y": 2,
-    },
-    "transform": Array [
-      27000,
-      0,
-      0,
-      27000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "x": 30,
-      "y": 30,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "scale",
-  },
-  Object {
-    "props": Object {
-      "value": "#008000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 0,
-      "y": 0,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Z",
-      "x": 0,
-      "y": 1,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#008000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 0,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Z",
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#008000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 0,
-      "y": 1,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Z",
-      "x": 0,
-      "y": 2,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#008000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "Z",
-      "x": 1,
-      "y": 2,
-    },
-    "transform": Array [
-      810000,
-      0,
-      0,
-      810000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "x": 30,
-      "y": 30,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "scale",
-  },
-  Object {
-    "props": Object {
-      "value": "#800080",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 0,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "S",
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#800080",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 2,
-      "y": 0,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "S",
-      "x": 2,
-      "y": 1,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#800080",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 0,
-      "y": 1,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "S",
-      "x": 0,
-      "y": 2,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#800080",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "S",
-      "x": 1,
-      "y": 2,
-    },
-    "transform": Array [
-      24300000,
-      0,
-      0,
-      24300000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "x": 30,
-      "y": 30,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "scale",
-  },
-  Object {
-    "props": Object {
-      "value": "#ff0000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 0,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "T",
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#ff0000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 0,
-      "y": 1,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "T",
-      "x": 0,
-      "y": 2,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#ff0000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 1,
-      "y": 1,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "T",
-      "x": 1,
-      "y": 2,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#ff0000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 2,
-      "y": 1,
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      729000000,
-      0,
-      0,
-      729000000,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "T",
-      "x": 2,
       "y": 2,
     },
     "transform": Array [
@@ -3878,6 +3878,82 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
       "x": 0,
       "y": 1,
     },
@@ -4076,82 +4152,6 @@ Array [
       "maxWidth": null,
       "text": "H",
       "x": 2,
-      "y": 2,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#00ffff",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 3,
-      "y": 1,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "H",
-      "x": 3,
       "y": 2,
     },
     "transform": Array [
@@ -4521,6 +4521,82 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
       "x": 0,
       "y": 1,
     },
@@ -4719,82 +4795,6 @@ Array [
       "maxWidth": null,
       "text": "H",
       "x": 2,
-      "y": 2,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#00ffff",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 3,
-      "y": 1,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "H",
-      "x": 3,
       "y": 2,
     },
     "transform": Array [
@@ -5483,6 +5483,82 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
+      "x": 1,
+      "y": 0,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillRect",
+  },
+  Object {
+    "props": Object {
+      "value": "#000000",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "value": "1px sans-serif",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "font",
+  },
+  Object {
+    "props": Object {
+      "maxWidth": null,
+      "text": "H",
+      "x": 1,
+      "y": 1,
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillText",
+  },
+  Object {
+    "props": Object {
+      "value": "#00ffff",
+    },
+    "transform": Array [
+      30,
+      0,
+      0,
+      30,
+      0,
+      0,
+    ],
+    "type": "fillStyle",
+  },
+  Object {
+    "props": Object {
+      "height": 1,
+      "width": 1,
       "x": 0,
       "y": 1,
     },
@@ -5681,82 +5757,6 @@ Array [
       "maxWidth": null,
       "text": "H",
       "x": 2,
-      "y": 2,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillText",
-  },
-  Object {
-    "props": Object {
-      "value": "#00ffff",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "height": 1,
-      "width": 1,
-      "x": 3,
-      "y": 1,
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillRect",
-  },
-  Object {
-    "props": Object {
-      "value": "#000000",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "fillStyle",
-  },
-  Object {
-    "props": Object {
-      "value": "1px sans-serif",
-    },
-    "transform": Array [
-      30,
-      0,
-      0,
-      30,
-      0,
-      0,
-    ],
-    "type": "font",
-  },
-  Object {
-    "props": Object {
-      "maxWidth": null,
-      "text": "H",
-      "x": 3,
       "y": 2,
     },
     "transform": Array [
@@ -6440,7 +6440,7 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
-      "x": 0,
+      "x": 1,
       "y": 0,
     },
     "transform": Array [
@@ -6485,7 +6485,7 @@ Array [
     "props": Object {
       "maxWidth": null,
       "text": "Z",
-      "x": 0,
+      "x": 1,
       "y": 1,
     },
     "transform": Array [
@@ -6516,7 +6516,7 @@ Array [
     "props": Object {
       "height": 1,
       "width": 1,
-      "x": 1,
+      "x": 2,
       "y": 0,
     },
     "transform": Array [
@@ -6561,7 +6561,7 @@ Array [
     "props": Object {
       "maxWidth": null,
       "text": "Z",
-      "x": 1,
+      "x": 2,
       "y": 1,
     },
     "transform": Array [

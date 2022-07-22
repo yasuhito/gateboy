@@ -19,24 +19,21 @@ describe("gate reduction rules", () => {
     account = { score: 0, gates: 0, level: 0 };
   });
 
-  // H
-  // H
-  // H
-  // H
+  //  H
+  // HHH
   // ↓
-  // I
+  // H H
   it("should reduce HH to I", function () {
     board.block = new Block("H");
-    const rotatedBlock = board.rotate(board.block);
-    board.block.move(rotatedBlock);
     hardDrop(board);
 
     board.reduceGates(account);
 
-    for (let i = 0; i <= 19; i++) {
+    for (let i = 0; i <= 18; i++) {
       // prettier-ignore
       expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
     }
+    expect(board.grid[19]).toStrictEqual(["H","I","H","I","I","I","I","I","I","I"]);
   });
 
   // X
@@ -75,39 +72,40 @@ describe("gate reduction rules", () => {
     expect(board.grid[19]).toStrictEqual(["Y","Y","I","I","I","I","I","I","I","I"]);
   });
 
-  // ZZ
+  //  ZZ
   // ZZ
   //  ↓
-  //
+  // Z Z
   it("should reduce ZZ to I", function () {
     board.block = new Block("Z");
     hardDrop(board);
 
     board.reduceGates(account);
+    board.dropUnconnectedGates();
 
-    for (let i = 0; i <= 19; i++) {
+    for (let i = 0; i <= 18; i++) {
       // prettier-ignore
       expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
     }
+    expect(board.grid[19]).toStrictEqual(["Z","I","Z","I","I","I","I","I","I","I"]);
   });
 
-  //  SS
+  // SS
   // SS
   //  ↓
-  // SZS
+  // ZZ
   it("should reduce SS to Z", function () {
     board.block = new Block("S");
     hardDrop(board);
 
     board.reduceGates(account);
-    board.dropUnconnectedGates();
 
-    for (let i = 0; i < 19; i++) {
+    for (let i = 0; i <= 18; i++) {
       // prettier-ignore
       expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
     }
     // prettier-ignore
-    expect(board.grid[19]).toStrictEqual(["S","Z","S","I","I","I","I","I","I","I"]);
+    expect(board.grid[19]).toStrictEqual(["Z","Z","I","I","I","I","I","I","I","I"]);
   });
 
   //  T
@@ -116,24 +114,30 @@ describe("gate reduction rules", () => {
   // TST
   it("should reduce TT to S", function () {
     board.block = new Block("T");
+    const rotatedBlock = board.rotate(board.block);
+    board.block.move(rotatedBlock);
     hardDrop(board);
 
     board.reduceGates(account);
 
-    for (let i = 0; i < 19; i++) {
+    for (let i = 0; i <= 16; i++) {
       // prettier-ignore
       expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
     }
     // prettier-ignore
-    expect(board.grid[19]).toStrictEqual(["T","S","T","I","I","I","I","I","I","I"]);
+    expect(board.grid[17]).toStrictEqual(["I","I","S","I","I","I","I","I","I","I"]);
+    // prettier-ignore
+    expect(board.grid[18]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
+    // prettier-ignore
+    expect(board.grid[19]).toStrictEqual(["I","I","S","I","I","I","I","I","I","I"]);
   });
 
-  // ZZ
+  //  ZZ
   // ZZ
   //  XX
   //  ↓
   //  Z
-  //  YX
+  // ZYY
   it("should reduce XZ to Y", function () {
     board.block = new Block("X");
     hardDrop(board);
@@ -144,6 +148,7 @@ describe("gate reduction rules", () => {
 
     board.reduceGates(account);
     board.dropUnconnectedGates();
+    board.reduceGates(account);
 
     for (let i = 0; i <= 17; i++) {
       // prettier-ignore
@@ -152,23 +157,16 @@ describe("gate reduction rules", () => {
     // prettier-ignore
     expect(board.grid[18]).toStrictEqual(["I","Z","I","I","I","I","I","I","I","I"]);
     // prettier-ignore
-    expect(board.grid[19]).toStrictEqual(["I","Y","X","I","I","I","I","I","I","I"]);
+    expect(board.grid[19]).toStrictEqual(["Z","Y","Y","I","I","I","I","I","I","I"]);
   });
 
   // X
-  // XXX
-  //  Z
-  //  YX
-  //  ↓
-  //  Y
-  //  Y
-  //  ↓
-  //  I
-  it("should reduce XZ to Y", function () {
-    board.block = new Block("X");
-    hardDrop(board);
-    board.reduceGates(account);
-
+  // XXX  
+  // Z Z
+  // ↓
+  // X
+  // YXY
+  it("should reduce ZX to Y", function () {
     board.block = new Block("Z");
     hardDrop(board);
     board.reduceGates(account);
@@ -181,19 +179,21 @@ describe("gate reduction rules", () => {
     board.dropUnconnectedGates();
     board.reduceGates(account);
 
-    for (let i = 0; i <= 19; i++) {
+    for (let i = 0; i <= 17; i++) {
       // prettier-ignore
       expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
     }
+    expect(board.grid[18]).toStrictEqual(["X","I","I","I","I","I","I","I","I","I"]);
+    expect(board.grid[19]).toStrictEqual(["Y","X","Y","I","I","I","I","I","I","I"]);
   });
 
-  //
-  // HHHH
+  //  H
+  // HHH
   //  XX
-  // HHHH
+  // H H
   //  ↓
-  //  ZZ
-  it("should reduce XZ to Y", function () {
+  //  XZ
+  it("should reduce HXH to Y", function () {
     board.block = new Block("H");
     hardDrop(board);
 
@@ -207,15 +207,52 @@ describe("gate reduction rules", () => {
     board.reduceGates(account);
     board.dropUnconnectedGates();
     board.reduceGates(account);
-
+    board.dropUnconnectedGates();
+    board.reduceGates(account);
+    
     for (let i = 0; i < 19; i++) {
       // prettier-ignore
       expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
     }
     // prettier-ignore
-    expect(board.grid[19]).toStrictEqual(["I","Z","Z","I","I","I","I","I","I","I"]);
+    expect(board.grid[19]).toStrictEqual(["I","X","Z","I","I","I","I","I","I","I"]);
   });
 
+  // SSSS
+  // Z Z
+  // SSSS
+  //  ↓
+  // ZZZZ
+  it("should reduce SZS to Z", function () {
+    board.block = new Block("T");
+    hardDrop(board);
+    board.block = new Block("T");
+    hardDrop(board);
+    board.reduceGates(account);
+
+    board.block = new Block("Z");
+    hardDrop(board);
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+
+    board.block = new Block("T");
+    hardDrop(board);
+    board.block = new Block("T");
+    hardDrop(board);
+    board.reduceGates(account);
+
+    board.reduceGates(account);
+    board.dropUnconnectedGates();
+    board.reduceGates(account);
+
+    for (let i = 0; i <= 18; i++) {
+      // prettier-ignore
+      expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
+    }
+    // prettier-ignore
+    expect(board.grid[19]).toStrictEqual(["Z","Z","Z","Z","I","I","I","I","I","I"]);
+  });
+  
   function hardDrop(board) {
     let freeze = false;
 

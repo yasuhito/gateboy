@@ -59,10 +59,9 @@ describe("Board", () => {
       const rotatedBlock = board.rotate(block);
 
       expect(rotatedBlock.shape).toEqual([
-        ["I", "I", "H", "I"],
-        ["I", "I", "H", "I"],
-        ["I", "I", "H", "I"],
-        ["I", "I", "H", "I"],
+        ["I", "H", "I"],
+        ["I", "H", "H"],
+        ["I", "H", "I"],
       ]);
     });
 
@@ -93,8 +92,9 @@ describe("Board", () => {
       const rotatedBlock = board.rotate(block);
 
       expect(rotatedBlock.shape).toEqual([
-        ["Z", "Z"],
-        ["Z", "Z"],
+        ["I", "Z", "I"],
+        ["I", "Z", "Z"],
+        ["I", "I", "Z"],
       ]);
     });
 
@@ -103,9 +103,8 @@ describe("Board", () => {
       const rotatedBlock = board.rotate(block);
 
       expect(rotatedBlock.shape).toEqual([
-        ["I", "S", "I"],
-        ["I", "S", "S"],
-        ["I", "I", "S"],
+        ["S", "S"],
+        ["S", "S"],
       ]);
     });
 
@@ -114,9 +113,10 @@ describe("Board", () => {
       const rotatedBlock = board.rotate(block);
 
       expect(rotatedBlock.shape).toEqual([
-        ["I", "T", "I"],
-        ["I", "T", "T"],
-        ["I", "T", "I"],
+        ["I", "I", "T", "I"],
+        ["I", "I", "T", "I"],
+        ["I", "I", "T", "I"],
+        ["I", "I", "T", "I"],
       ]);
     });
   });
@@ -133,7 +133,7 @@ describe("Board", () => {
     it("should return true if H block is located inside the walls", function () {
       const block = new Block("H");
 
-      for (const x of [1, 2, 3, 4, 5, 6]) {
+      for (const x of [1, 2, 3, 4, 5, 6, 7]) {
         block.x = x;
         expect(board.isValidPosition(block)).toBeTruthy();
       }
@@ -148,7 +148,7 @@ describe("Board", () => {
 
     it("should return false if H block is located outside the right wall", function () {
       const block = new Block("H");
-      block.x = 7;
+      block.x = 8;
 
       expect(board.isValidPosition(block)).toBeFalsy();
     });
@@ -202,7 +202,7 @@ describe("Board", () => {
     it("should return true if Z block is located inside the walls", function () {
       const block = new Block("Z");
 
-      for (const x of [1, 2, 3, 4, 5, 6, 7, 8]) {
+      for (const x of [1, 2, 3, 4, 5, 6, 7]) {
         block.x = x;
         expect(board.isValidPosition(block)).toBeTruthy();
       }
@@ -240,7 +240,7 @@ describe("Board", () => {
 
     it("should return false if S block is located outside the right wall", function () {
       const block = new Block("S");
-      block.x = 8;
+      block.x = 9;
 
       expect(board.isValidPosition(block)).toBeFalsy();
     });
@@ -248,7 +248,7 @@ describe("Board", () => {
     it("should return true if T block is located inside the walls", function () {
       const block = new Block("T");
 
-      for (const x of [1, 2, 3, 4, 5, 6, 7]) {
+      for (const x of [1, 2, 3, 4, 5, 6]) {
         block.x = x;
         expect(board.isValidPosition(block)).toBeTruthy();
       }
@@ -263,7 +263,7 @@ describe("Board", () => {
 
     it("should return false if T block is located outside the right wall", function () {
       const block = new Block("T");
-      block.x = 8;
+      block.x = 7;
 
       expect(board.isValidPosition(block)).toBeFalsy();
     });
@@ -288,20 +288,19 @@ describe("Board", () => {
       expect(board.drop().gameOver).toBeFalsy();
     });
 
-    // HHHH
-    //  ↓
-    // HHHH
     it("should freeze when its block reaches the bottom", function () {
       board.block = new Block("H");
 
       for (let i = 0; i <= 19; i++) board.drop();
 
-      for (let i = 0; i < 19; i++) {
+      for (let i = 0; i < 18; i++) {
         // prettier-ignore
         expect(board.grid[i]).toStrictEqual(["I","I","I","I","I","I","I","I","I","I"]);
       }
       // prettier-ignore
-      expect(board.grid[19]).toStrictEqual(["H","H","H","H","I","I","I","I","I","I"]);
+      expect(board.grid[18]).toStrictEqual(["I","H","I","I","I","I","I","I","I","I"]);
+      // prettier-ignore
+      expect(board.grid[19]).toStrictEqual(["H","H","H","I","I","I","I","I","I","I"]);
     });
   });
 });
